@@ -1,0 +1,8 @@
+module.exports = {
+    mongo: {
+        connectionString: {
+            development: 'mongodb+srv://lab:lab@cluster0.eoi97.mongodb.net/e-wallet-dev',
+            production: 'mongodb+srv://lab:lab@cluster0.eoi97.mongodb.net/e-wallet',
+        },
+    }
+}
