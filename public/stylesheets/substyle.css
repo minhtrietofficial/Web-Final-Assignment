@@ -1,0 +1,98 @@
+body {
+
+  background-image: url('/resources/images/subbackground.png');
+}
+a {
+  text-decoration: none;
+}
+
+/*-----------------------------------------------------------------*/
+.index .welcomecard {
+  background-color: #ffffff;
+  border-radius: 19px;
+  box-shadow: 0px 10px 20px -10px rgba(0, 0, 0, 0.75);
+  padding-top: 20px;
+  position: relative;
+  width: 500px;
+  max-width: 100%;
+  text-align: center;
+  margin-top: 230px;
+}
+
+.index .welcomecard .appname {
+  color: #6667AB;
+  font-size: 40px;
+  margin-top: 10px;
+}
+
+/****Button Login - Sign up***********************************/
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.btnindex-group {
+  position: relative;
+  width: 100%;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+
+.btnindex:hover {
+  background-position: 100% 0;
+  moz-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+.btnindex-group .btn-signup {
+margin-left: 8px;
+  color: #fff;
+  width: 100px;
+  font-size: 18px;
+  font-weight: 550;
+  cursor: pointer;
+  height: 60px;
+  border: none;
+  background-size: 300% 100%;
+  border-radius: 50px;
+  moz-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+  background-image: linear-gradient(to right, #25aae1, #40e495, #30dd8a, #2bb673);
+  box-shadow: 0 4px 15px 0 rgba(49, 196, 190, 0.75);
+}
+
+.btnindex-group .btn-login {
+  margin-left: 15px;
+  color: #fff;
+  width: 100px;
+  font-size: 18px;
+  font-weight: 550;
+  cursor: pointer;
+  height: 60px;
+  border: none;
+  background-size: 300% 100%;
+  border-radius: 50px;
+  moz-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+  background-image: linear-gradient(to right, #667eea, #764ba2, #6B8DD6, #8E37D7);
+  box-shadow: 0 4px 15px 0 rgba(116, 79, 168, 0.75);
+}
+
+.btnindex:focus {
+  outline: none;
+}
+
+.index .reserved {
+  color: black;
+  font-size: 16px;
+  font-size: small;
+}
+
+/*-----------------------------------------------------------------*/

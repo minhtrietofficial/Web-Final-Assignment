@@ -8,6 +8,10 @@ var mongoose = require('mongoose');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var homeRouter = require('./routes/home');
+var registerRouter = require('./routes/register');
+var loginRouter = require('./routes/login');
+var resetpasswordRouter = require('./routes/resetpassword');
 
 var app = express();
 
@@ -26,6 +30,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/home', homeRouter);
+app.use('/register', registerRouter);
+app.use('/login', loginRouter);
+app.use('/resetpassword', resetpasswordRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
