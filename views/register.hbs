@@ -1,0 +1,259 @@
+<div class="register">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+                <div class="card shadow-lg border-0 rounded-lg mt-5">
+                    <div class="card-header">
+                        <h3 class="text-center font-weight-light my-4">Tạo tài khoản</h3>
+                    </div>
+                    <div class="card-body">
+                        <form action="registerfont.php" method="post" class="font-weight-bold needs-validation"
+                            novalidate>
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <div class="form-floating mb-3 mb-md-0">
+                                        <input class="form-control" name="lastname" id="inputLastName" type="text"
+                                            placeholder="Enter your last name" required />
+                                        <label for="inputFirstName">Họ và tên lót</label>
+                                        <div class="invalid-tooltip">Vui lòng nhập Họ và tên lót.</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                        <input class="form-control" name="firstname" id="inputFirstName" type="text"
+                                            placeholder="Enter your first name" required />
+                                        <label for="inputLastName">Tên</label>
+                                        <div class="invalid-tooltip">Vui lòng nhập tên.</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-md-4">
+                                    <div class="form-floating">
+                                        <input class="form-control" name="ngaysinh" id="inputLastName" type="date"
+                                            placeholder="Enter your last name" required />
+                                        <label for="inputLastName">Ngày sinh</label>
+                                        <div class="invalid-tooltip">Vui lòng nhập ngày sinh</div>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-floating">
+                                        <select class="form-select" id="sel1" name="gender">
+                                            <option>Nam</option>
+                                            <option>Nữ</option>
+                                            <option>Khác</option>
+                                        </select>
+                                        <label for="sel1" class="form-label">Giới tính</label>
+                                    </div>
+                                </div>
+                               
+                                <div class="col-md-4">
+                                    <div class="form-floating">
+                                        <select class="form-select" id="sel1" name="noisinh">
+                                            <option>An Giang</option>
+                                            <option>Bà Rịa – Vũng Tàu</option>
+                                            <option>Bắc Giang</option>
+                                            <option>Bắc Kạn</option>
+                                            <option>Bạc Liêu</option>
+                                            <option>Bắc Ninh</option>
+                                            <option>Bến Tre</option>
+                                            <option>Bình Định</option>
+                                            <option>Bình Dương</option>
+                                            <option>Bình Phước</option>
+                                            <option>Bình Thuận</option>
+                                            <option>Cà Mau</option>
+                                            <option>Cần Thơ</option>
+                                            <option>Cao Bằng</option>
+                                            <option>Đà Nẵng</option>
+                                            <option>Đắk Lắk</option>
+                                            <option>Đắk Nông</option>
+                                            <option>Điện Biên</option>
+                                            <option>Đồng Nai</option>
+                                            <option>Đồng Tháp</option>
+                                            <option>Gia Lai</option>
+                                            <option>Hà Giang</option>
+                                            <option>Hà Nam</option>
+                                            <option>Hà Nội</option>
+                                            <option>Hà Tĩnh</option>
+                                            <option>Hải Dương</option>
+                                            <option>Hải Phòng</option>
+                                            <option>Hậu Giang</option>
+                                            <option>Hòa Bình</option>
+                                            <option>Hưng Yên</option>
+                                            <option>Khánh Hòa</option>
+                                            <option>Kiên Giang</option>
+                                            <option>Kon Tum</option>
+                                            <option>Lai Châu</option>
+                                            <option>Lâm Đồng</option>
+                                            <option>Lạng Sơn</option>
+                                            <option>Lào Cai</option>
+                                            <option>Long An</option>
+                                            <option>Nam Định</option>
+                                            <option>Nghệ An</option>
+                                            <option>Ninh Bình</option>
+                                            <option>Ninh Thuận</option>
+                                            <option>Phú Thọ</option>
+                                            <option>Phú Yên</option>
+                                            <option>Quảng Bình</option>
+                                            <option>Quảng Nam</option>
+                                            <option>Quảng Ngãi</option>
+                                            <option>Quảng Ninh</option>
+                                            <option>Quảng Trị</option>
+                                            <option>Sóc Trăng</option>
+                                            <option>Sơn La</option>
+                                            <option>Tây Ninh</option>
+                                            <option>Thái Bình</option>
+                                            <option>Thái Nguyên</option>
+                                            <option>Thanh Hóa</option>
+                                            <option>Thừa Thiên Huế</option>
+                                            <option>Tiền Giang</option>
+                                            <option>TP Hồ Chí Minh</option>
+                                            <option>Trà Vinh</option>
+                                            <option>Tuyên Quang</option>
+                                            <option>Vĩnh Long</option>
+                                            <option>Vĩnh Phúc</option>
+                                            <option>Yên Bái</option>
+                                        </select>
+                                        <label for="sel1" class="form-label">Địa chỉ:</label>
+                                    </div>
+                                
+
+                            </div>
+
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-md-4">
+                                    <div class="form-floating mb-3 mb-md-0">
+                                        <input class="form-control" name="cccd" id="inputFirstName" type="text"
+                                            placeholder="Enter your first name" />
+                                        <label for="inputFirstName">CCCD</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-floating mb-3 mb-md-0">
+                                        <input class="form-control" name="ngaycap" id="inputFirstName" type="date"
+                                            placeholder="Enter your first name" />
+                                        <label for="inputFirstName">Ngày cấp</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-floating">
+                                        <div class="form-floating">
+                                            <select class="form-select" id="sel1" name="noisinh">
+                                                <option>CỤC CẢNH SÁT</option>
+                                                <option>An Giang</option>
+                                                <option>Bà Rịa – Vũng Tàu</option>
+                                                <option>Bắc Giang</option>
+                                                <option>Bắc Kạn</option>
+                                                <option>Bạc Liêu</option>
+                                                <option>Bắc Ninh</option>
+                                                <option>Bến Tre</option>
+                                                <option>Bình Định</option>
+                                                <option>Bình Dương</option>
+                                                <option>Bình Phước</option>
+                                                <option>Bình Thuận</option>
+                                                <option>Cà Mau</option>
+                                                <option>Cần Thơ</option>
+                                                <option>Cao Bằng</option>
+                                                <option>Đà Nẵng</option>
+                                                <option>Đắk Lắk</option>
+                                                <option>Đắk Nông</option>
+                                                <option>Điện Biên</option>
+                                                <option>Đồng Nai</option>
+                                                <option>Đồng Tháp</option>
+                                                <option>Gia Lai</option>
+                                                <option>Hà Giang</option>
+                                                <option>Hà Nam</option>
+                                                <option>Hà Nội</option>
+                                                <option>Hà Tĩnh</option>
+                                                <option>Hải Dương</option>
+                                                <option>Hải Phòng</option>
+                                                <option>Hậu Giang</option>
+                                                <option>Hòa Bình</option>
+                                                <option>Hưng Yên</option>
+                                                <option>Khánh Hòa</option>
+                                                <option>Kiên Giang</option>
+                                                <option>Kon Tum</option>
+                                                <option>Lai Châu</option>
+                                                <option>Lâm Đồng</option>
+                                                <option>Lạng Sơn</option>
+                                                <option>Lào Cai</option>
+                                                <option>Long An</option>
+                                                <option>Nam Định</option>
+                                                <option>Nghệ An</option>
+                                                <option>Ninh Bình</option>
+                                                <option>Ninh Thuận</option>
+                                                <option>Phú Thọ</option>
+                                                <option>Phú Yên</option>
+                                                <option>Quảng Bình</option>
+                                                <option>Quảng Nam</option>
+                                                <option>Quảng Ngãi</option>
+                                                <option>Quảng Ninh</option>
+                                                <option>Quảng Trị</option>
+                                                <option>Sóc Trăng</option>
+                                                <option>Sơn La</option>
+                                                <option>Tây Ninh</option>
+                                                <option>Thái Bình</option>
+                                                <option>Thái Nguyên</option>
+                                                <option>Thanh Hóa</option>
+                                                <option>Thừa Thiên Huế</option>
+                                                <option>Tiền Giang</option>
+                                                <option>TP Hồ Chí Minh</option>
+                                                <option>Trà Vinh</option>
+                                                <option>Tuyên Quang</option>
+                                                <option>Vĩnh Long</option>
+                                                <option>Vĩnh Phúc</option>
+                                                <option>Yên Bái</option>
+                                            </select>
+                                            <label for="sel1" class="form-label">Nơi cấp:</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="row mb-3">
+                                
+                                <div class="col-md-12">
+                                    <div class="form-floating">
+                                        <input class="form-control" name="firstname" id="inputFirstName" type="text"
+                                            placeholder="Enter your first name" required />
+                                        <label for="inputLastName">Số điện thoại</label>
+                                        <div class="invalid-tooltip">Số điện thoại</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-md-8">
+                                    <div class="form-floating">
+                                        <input class="form-control" name="email" id="inputLastName" type="text"
+                                            placeholder="Email username" />
+                                        <label for="inputLastName">Email username</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-floating">
+                                        <select class="form-select" name="duoiemail" id="sel1" name="sellist">
+                                            <option>@gmail.com</option>
+                                            <option>@outlook.com</option>
+                                            <option>@outlook.com.vn</option>
+                                        </select>
+                                        <label for="sel1" class="form-label">Tên miền</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-4 mb-0">
+                                <div class="d-grid align-items-center justify-content-center">
+                                    <button type="submit" class="buttonregister">Gửi email xác thực</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card-footer text-center py-3">
+                        <div class="small">Created By BKTTT Team | Copyright © 2022 all rights reserved</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
