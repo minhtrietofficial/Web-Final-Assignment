@@ -4,7 +4,7 @@ var router = express.Router();
 /* GET home page. */
 router.get('/', function (req, res, next) {
     let context = {
-        title: 'Register',
+        title: 'Register | BKTPay',
         layout: 'sublayout'
     }
     res.render('register', context);

@@ -4,7 +4,7 @@ var router = express.Router();
 /* GET home page. */
 router.get('/', function(req, res, next) {
     let context = {
-        title: 'Home',
+        title: 'Home | BKTPay',
         layout:'layout'
       }
   res.render('home', context);
