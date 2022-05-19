@@ -20,9 +20,9 @@ a {
 }
 
 .index .welcomecard .appname {
-  color: #6667AB;
   font-size: 40px;
-  margin-top: 10px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: #E0C878;
 }
 
 /****Button Login - Sign up***********************************/
