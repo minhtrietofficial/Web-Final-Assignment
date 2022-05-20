@@ -3,51 +3,155 @@ body {
 }
 
 /***************************************************/
+
+.scrollbar-deep-purple::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+    background-color: #F5F5F5;
+    border-radius: 10px;
+}
+
+.scrollbar-deep-purple::-webkit-scrollbar {
+    width: 12px;
+    background-color: #F5F5F5;
+}
+
+.scrollbar-deep-purple::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+    background-color: #512da8;
+}
+
+.scrollbar-deep-purple {
+    scrollbar-color: #512da8 #F5F5F5;
+}
+
+.bordered-deep-purple::-webkit-scrollbar-track {
+    -webkit-box-shadow: none;
+    border: 1px solid #512da8;
+}
+
+.bordered-deep-purple::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: none;
+}
+
+.thin::-webkit-scrollbar {
+    width: 6px;
+}
+
+
+.headerofpage {
+    grid-area: headerofpage;
+    z-index: 1;
+    height: 80px;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: right;
+}
+
+.contentleft {
+    grid-area: contentleft;
+}
+
+.contentright {
+    grid-area: contentright;
+}
+
+.grid-container {
+    display: grid;
+
+    grid-template:
+        'sidenav headerofpage headerofpage headerofpage headerofpage headerofpage '
+        'sidenav contentleft contentleft contentright contentright contentright';
+    grid-gap: 10px;
+    background-color: #2196F3;
+    padding: 10px;
+
+}
+
+.grid-container>div {
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 30px;
+}
+
 /*Homepage*********************************/
-.sidenav {
+.home .sidenav {
+    grid-area: sidenav;
+
     height: 100%;
     width: 320px;
     position: fixed;
     z-index: 1;
     top: 0;
     background-color: #041b20c0;
-    overflow-x: hidden;
+    overflow-y: scroll;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+
     /* Disable horizontal scroll */
 }
 
-.sidenav .logobrandcard {
+.home .sidenav .logobrandcard {
     background-color: none;
     border-radius: 20px;
-   
     position: relative;
     max-width: 320px;
     text-align: center;
     margin-top: 10px;
     height: 150px;
+    display: flex;
     justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+
 }
-.sidenav .brandname{
+
+.home .sidenav .brandname {
     font-size: 28px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: #E0C878;
 }
 
-.profilecard {
+.home .profilecard {
     background-color: #2C4044;
     border-radius: 20px;
     box-shadow: 0px 10px 10px -10px rgba(0, 0, 0, 0.75);
     color: #B3B8CD;
-    padding-top: 20px;
+    padding-top: 10px;
     padding-bottom: 10px;
     position: relative;
     width: 280px;
     max-width: 100%;
     text-align: center;
     margin-top: 5px;
-    margin-left: 18px;
-    margin-right: 18px;
+
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
 }
-.account {
+
+
+.home .ten {
+    font-weight: 400;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.home .numberphone {
+    font-weight: 350;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.home .account {
     background-color: #2C4044;
     border-radius: 20px;
     box-shadow: 0px 10px 10px -10px rgba(0, 0, 0, 0.75);
@@ -58,14 +162,97 @@ body {
     max-width: 100%;
     text-align: center;
     margin-top: 5px;
-    margin-left: 18px;
-    margin-right: 18px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+
 }
-.account .money{
+
+.home .account .sodu {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    color: #fff;
+    text-align: left;
+    margin-left: 20px;
+}
+
+.home .account .money {
     font-weight: 500;
     font-size: medium;
     color: #72BF00;
 }
 
+.home .transaction {
+    background-color: #2C4044;
+    border-radius: 20px;
+    padding-top: 10px;
+    padding-bottom: 15px;
+    position: relative;
+    width: 280px;
+    max-width: 100%;
+    text-align: center;
+    margin-top: 5px;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+
+.home .nametransaction {
+    font-size: 14px;
+    font-weight: 400;
+    color: #fff;
+    text-decoration: none;
+    margin-left: 15px;
+    margin-right: 15px;
+
+}
+
+.home .panel {
+    background-color: #2C4044;
+    border-radius: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    position: relative;
+    width: 280px;
+    max-width: 100%;
+    text-align: center;
+    margin-top: 5px;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: left;
+}
+
+.home .panel .panel-group-transaction {
+    width: 100%;
+    background-color: none;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: left;
+}
+
+.panel-group-logo {
+    margin-left: 15px;
+
+}
+
+.panel-group-nametransaction {
+    color: #fff;
+    font-weight: 400;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
 
 /***************************************************/

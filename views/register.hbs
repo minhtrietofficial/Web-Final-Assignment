@@ -7,39 +7,39 @@
                         <h3 class="text-center font-weight-light my-4">Tạo tài khoản</h3>
                     </div>
                     <div class="card-body">
-                        <form action="registerfont.php" method="post" class="font-weight-bold needs-validation"
-                            novalidate>
+                        <form action="home" method="post" class="font-weight-bold needs-validation" enctype="multipart/form-data" novalidate>
                             <div class="row mb-3">
                                 <div class="col-md-6">
-                                    <div class="form-floating mb-3 mb-md-0">
-                                        <input class="form-control" name="lastname" id="inputLastName" type="text"
+                                    <div class="form-floating">
+                                        <input class="form-control" type="text" name="lastname" id="inputLastName" value=""
                                             placeholder="Enter your last name" required />
-                                        <label for="inputFirstName">Họ và tên lót</label>
+                                        <label for="inputLastName">Họ và tên lót</label>
                                         <div class="invalid-tooltip">Vui lòng nhập Họ và tên lót.</div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input class="form-control" name="firstname" id="inputFirstName" type="text"
+                                    <div class="form-floating mb-3 mb-md-0">
+                                        <input class="form-control"type="text" name="firstname" id="inputFirstName" value=""
                                             placeholder="Enter your first name" required />
-                                        <label for="inputLastName">Tên</label>
+                                        <label for="inputFirstName">Tên</label>
                                         <div class="invalid-tooltip">Vui lòng nhập tên.</div>
+
                                     </div>
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <div class="col-md-4">
                                     <div class="form-floating">
-                                        <input class="form-control" name="ngaysinh" id="inputLastName" type="date"
-                                            placeholder="Enter your last name" required />
-                                        <label for="inputLastName">Ngày sinh</label>
+                                        <input class="form-control" type="date" name="birthdate" id="inputbirthdate"  value=""
+                                            placeholder="Enter your birthdate" required />
+                                        <label for="inputbirthdate">Ngày sinh</label>
                                         <div class="invalid-tooltip">Vui lòng nhập ngày sinh</div>
 
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-floating">
-                                        <select class="form-select" id="sel1" name="gender">
+                                        <select class="form-select" id="sel1" name="gender" value=""> 
                                             <option>Nam</option>
                                             <option>Nữ</option>
                                             <option>Khác</option>
@@ -47,10 +47,15 @@
                                         <label for="sel1" class="form-label">Giới tính</label>
                                     </div>
                                 </div>
-                               
+
                                 <div class="col-md-4">
                                     <div class="form-floating">
-                                        <select class="form-select" id="sel1" name="noisinh">
+                                        <select class="form-select" name="adress" id="pickadress"  value="">
+                                            <option selected="selected">TP Hồ Chí Minh</option>
+                                            <option>Hà Nội</option>
+                                            <option>Đà Nẵng</option>
+                                            <option>Hải Phòng</option>
+                                            <option>Cần Thơ</option>
                                             <option>An Giang</option>
                                             <option>Bà Rịa – Vũng Tàu</option>
                                             <option>Bắc Giang</option>
@@ -63,9 +68,7 @@
                                             <option>Bình Phước</option>
                                             <option>Bình Thuận</option>
                                             <option>Cà Mau</option>
-                                            <option>Cần Thơ</option>
                                             <option>Cao Bằng</option>
-                                            <option>Đà Nẵng</option>
                                             <option>Đắk Lắk</option>
                                             <option>Đắk Nông</option>
                                             <option>Điện Biên</option>
@@ -74,10 +77,8 @@
                                             <option>Gia Lai</option>
                                             <option>Hà Giang</option>
                                             <option>Hà Nam</option>
-                                            <option>Hà Nội</option>
                                             <option>Hà Tĩnh</option>
                                             <option>Hải Dương</option>
-                                            <option>Hải Phòng</option>
                                             <option>Hậu Giang</option>
                                             <option>Hòa Bình</option>
                                             <option>Hưng Yên</option>
@@ -108,139 +109,111 @@
                                             <option>Thanh Hóa</option>
                                             <option>Thừa Thiên Huế</option>
                                             <option>Tiền Giang</option>
-                                            <option>TP Hồ Chí Minh</option>
                                             <option>Trà Vinh</option>
                                             <option>Tuyên Quang</option>
                                             <option>Vĩnh Long</option>
                                             <option>Vĩnh Phúc</option>
                                             <option>Yên Bái</option>
                                         </select>
-                                        <label for="sel1" class="form-label">Địa chỉ:</label>
+                                        <label for="pickadress" class="form-label">Địa chỉ:</label>
                                     </div>
-                                
 
-                            </div>
+
+                                </div>
 
                             </div>
                             <div class="row mb-3">
-                                <div class="col-md-4">
-                                    <div class="form-floating mb-3 mb-md-0">
-                                        <input class="form-control" name="cccd" id="inputFirstName" type="text"
-                                            placeholder="Enter your first name" />
-                                        <label for="inputFirstName">CCCD</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-floating mb-3 mb-md-0">
-                                        <input class="form-control" name="ngaycap" id="inputFirstName" type="date"
-                                            placeholder="Enter your first name" />
-                                        <label for="inputFirstName">Ngày cấp</label>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-floating">
-                                        <div class="form-floating">
-                                            <select class="form-select" id="sel1" name="noisinh">
-                                                <option>CỤC CẢNH SÁT</option>
-                                                <option>An Giang</option>
-                                                <option>Bà Rịa – Vũng Tàu</option>
-                                                <option>Bắc Giang</option>
-                                                <option>Bắc Kạn</option>
-                                                <option>Bạc Liêu</option>
-                                                <option>Bắc Ninh</option>
-                                                <option>Bến Tre</option>
-                                                <option>Bình Định</option>
-                                                <option>Bình Dương</option>
-                                                <option>Bình Phước</option>
-                                                <option>Bình Thuận</option>
-                                                <option>Cà Mau</option>
-                                                <option>Cần Thơ</option>
-                                                <option>Cao Bằng</option>
-                                                <option>Đà Nẵng</option>
-                                                <option>Đắk Lắk</option>
-                                                <option>Đắk Nông</option>
-                                                <option>Điện Biên</option>
-                                                <option>Đồng Nai</option>
-                                                <option>Đồng Tháp</option>
-                                                <option>Gia Lai</option>
-                                                <option>Hà Giang</option>
-                                                <option>Hà Nam</option>
-                                                <option>Hà Nội</option>
-                                                <option>Hà Tĩnh</option>
-                                                <option>Hải Dương</option>
-                                                <option>Hải Phòng</option>
-                                                <option>Hậu Giang</option>
-                                                <option>Hòa Bình</option>
-                                                <option>Hưng Yên</option>
-                                                <option>Khánh Hòa</option>
-                                                <option>Kiên Giang</option>
-                                                <option>Kon Tum</option>
-                                                <option>Lai Châu</option>
-                                                <option>Lâm Đồng</option>
-                                                <option>Lạng Sơn</option>
-                                                <option>Lào Cai</option>
-                                                <option>Long An</option>
-                                                <option>Nam Định</option>
-                                                <option>Nghệ An</option>
-                                                <option>Ninh Bình</option>
-                                                <option>Ninh Thuận</option>
-                                                <option>Phú Thọ</option>
-                                                <option>Phú Yên</option>
-                                                <option>Quảng Bình</option>
-                                                <option>Quảng Nam</option>
-                                                <option>Quảng Ngãi</option>
-                                                <option>Quảng Ninh</option>
-                                                <option>Quảng Trị</option>
-                                                <option>Sóc Trăng</option>
-                                                <option>Sơn La</option>
-                                                <option>Tây Ninh</option>
-                                                <option>Thái Bình</option>
-                                                <option>Thái Nguyên</option>
-                                                <option>Thanh Hóa</option>
-                                                <option>Thừa Thiên Huế</option>
-                                                <option>Tiền Giang</option>
-                                                <option>TP Hồ Chí Minh</option>
-                                                <option>Trà Vinh</option>
-                                                <option>Tuyên Quang</option>
-                                                <option>Vĩnh Long</option>
-                                                <option>Vĩnh Phúc</option>
-                                                <option>Yên Bái</option>
-                                            </select>
-                                            <label for="sel1" class="form-label">Nơi cấp:</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="row mb-3">
-                                
+
                                 <div class="col-md-12">
                                     <div class="form-floating">
-                                        <input class="form-control" name="firstname" id="inputFirstName" type="text"
+                                        <input class="form-control" type="text" name="numberphone" id="inputnumberphone" value=""
                                             placeholder="Enter your first name" required />
-                                        <label for="inputLastName">Số điện thoại</label>
+                                        <label for="inputnumberphone">Số điện thoại</label>
                                         <div class="invalid-tooltip">Số điện thoại</div>
                                     </div>
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <div class="col-md-8">
+
+                                <div class="col-md-9">
                                     <div class="form-floating">
-                                        <input class="form-control" name="email" id="inputLastName" type="text"
-                                            placeholder="Email username" />
-                                        <label for="inputLastName">Email username</label>
+                                        <input class="form-control" type="text" name="email" id="email" value=""
+                                            placeholder="Enter your email" required />
+                                        <label for="email">Email</label>
+                                        <div class="invalid-tooltip">Email</div>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-3">
                                     <div class="form-floating">
-                                        <select class="form-select" name="duoiemail" id="sel1" name="sellist">
-                                            <option>@gmail.com</option>
-                                            <option>@outlook.com</option>
-                                            <option>@outlook.com.vn</option>
-                                        </select>
-                                        <label for="sel1" class="form-label">Tên miền</label>
+                                        <input class="form-control" type="text" name="duoiemailemail" id="duoiemailemail" value=""
+                                            placeholder="@gmail.com" required disabled />
+                                        <label for="duoiemail">@gmail.com</label>
+                                        <div class="invalid-tooltip">Email</div>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="row mb-3">
+                                {{!-- _______________________________________________________ --}}
+                                <div class="col-md-6">
+                                    <div class="uploadimg">
+                                        <div class="wrapper">
+                                            <div class="image">
+                                                <img src="resources/images/frontcamera.png" alt="">
+                                            </div>
+                                            <div class="contenthere">
+                                                <div class="icon">
+                                                    <i class="fas fa-cloud-upload-alt"></i>
+                                                </div>
+                                                <div class="text">
+                                                    Mặt trước
+                                                </div>
+                                            </div>
+                                            <div id="cancel-btn">
+                                                <i class="fas fa-times"></i>
+                                            </div>
+                                            <div class="file-name">
+                                                File name here
+                                            </div>
+                                        </div>
+                                        <button type="button" onclick="defaultBtnActive()" class="custom-btn"
+                                            id="custom-btn">Tải
+                                            lên</button>
+                                        <input id="default-btn" type="file" name="frontnationalid" value="" hidden accept="image/png, image/gif, image/jpeg"/>
+                                    </div>
+                                </div>
+                                {{!-- _______________________________________________________ --}}
+
+                                <div class="col-md-6">
+                                    <div class="uploadimg">
+                                        <div class="wrapper" id="wrapper1">
+                                            <div class="image" id="image1">
+                                                <img id="imgresult1" src="resources/images/backcamera.png" alt="">
+                                            </div>
+                                            <div class="contenthere">
+                                                <div class="icon">
+                                                    <i class="fas fa-cloud-upload-alt"></i>
+                                                </div>
+                                                <div class="text">
+                                                    Mặt sau
+                                                </div>
+                                            </div>
+                                            <div id="cancel-btn1">
+                                                <i class="fas fa-times"></i>
+                                            </div>
+                                            <div class="file-name" id="file-name1">
+                                                File name here
+                                            </div>
+                                        </div>
+                                        <button type="button" onclick="defaultBtnActive1()" class="custom-btn"
+                                            id="custom-btn1">Tải
+                                            lên</button>
+                                        <input id="default-btn1"  type="file" name="backnationalid" value="" hidden accept="image/png, image/gif, image/jpeg"/>
+                                    </div>
+                                </div>
+                                {{!-- _______________________________________________________ --}}
+
+
+                                {{!-- _______________________________________________________ --}}
                             </div>
                             <div class="mt-4 mb-0">
                                 <div class="d-grid align-items-center justify-content-center">
@@ -256,4 +229,15 @@
             </div>
         </div>
     </div>
+
+    {{!--___________________________________Test___________________________________________ --}}
+
+    <!-- Created By CodingNepal -->
+
+
+
+
+    {{!--___________________________________Test___________________________________________ --}}
+
+</div>
 </div>

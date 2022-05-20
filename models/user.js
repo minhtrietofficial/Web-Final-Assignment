@@ -16,15 +16,26 @@ var userSchema = mongoose.Schema({
     },
     firstName: String,
     lastName: String,
+    gender: String,
     birthdate: String,
     address: String,
-    email: String,
-    phone: {
+    email:{
+        unique: true,
         type: String,
+    },
+    numberphone: {
+        type: String,
+        unique: true,
         maxLength: 10,
     },
-    frontNationalId: String,
-    backNationalId: String,
+    frontNationalId: {
+        data: Buffer,
+        contentType: String
+    },
+    backNationalId: {
+        data: Buffer,
+        contentType: String
+    },
 });
 
 module.exports = mongoose.model('User', userSchema);
