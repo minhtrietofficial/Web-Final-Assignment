@@ -38,16 +38,12 @@ body {
     width: 6px;
 }
 
+.sidenav {
+    grid-area: sidenav;
+}
 
 .headerofpage {
     grid-area: headerofpage;
-    z-index: 1;
-    height: 80px;
-    height: fit-content;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: right;
 }
 
 .contentleft {
@@ -79,8 +75,6 @@ body {
 
 /*Homepage*********************************/
 .home .sidenav {
-    grid-area: sidenav;
-
     height: 100%;
     width: 320px;
     position: fixed;
