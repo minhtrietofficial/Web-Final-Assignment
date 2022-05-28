@@ -7,7 +7,7 @@ router.get('/', function (req, res, next) {
         title: 'Resetpassword | BKTPay',
         layout: 'sublayout'
     }
-    res.render('register', context);
+    res.render('resetpassword', context);
 });
 
 module.exports = router;
