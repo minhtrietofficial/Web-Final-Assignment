@@ -28,14 +28,8 @@ var userSchema = mongoose.Schema({
         unique: true,
         maxLength: 10,
     },
-    frontNationalId: {
-        data: Buffer,
-        contentType: String
-    },
-    backNationalId: {
-        data: Buffer,
-        contentType: String
-    },
+    frontNationalId: String,
+    backNationalId: String,
 });
 
 module.exports = mongoose.model('User', userSchema);
