@@ -7,12 +7,12 @@
                         <h3 class="text-center font-weight-light my-4">Tạo tài khoản</h3>
                     </div>
                     <div class="card-body">
-                        <form action="home" method="post" class="font-weight-bold needs-validation"
+                        <form action="/register" method="post" class="font-weight-bold needs-validation"
                             enctype="multipart/form-data" novalidate>
                             <div class="row mb-3">
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <input class="form-control" type="text" name="lastname" id="inputLastName"
+                                        <input class="form-control" type="text" name="firstname" id="inputLastName"
                                             value="" placeholder="Enter your last name" required />
                                         <label for="inputLastName">Họ và tên lót</label>
                                         <div class="invalid-tooltip">Vui lòng nhập Họ và tên lót.</div>
@@ -20,7 +20,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating mb-3 mb-md-0">
-                                        <input class="form-control" type="text" name="firstname" id="inputFirstName"
+                                        <input class="form-control" type="text" name="lastname" id="inputFirstName"
                                             value="" placeholder="Enter your first name" required />
                                         <label for="inputFirstName">Tên</label>
                                         <div class="invalid-tooltip">Vui lòng nhập tên.</div>
@@ -51,7 +51,7 @@
 
                                 <div class="col-md-4">
                                     <div class="form-floating">
-                                        <select class="form-select" name="adress" id="pickadress" value="">
+                                        <select class="form-select" name="address" id="pickadress" value="">
                                             <option value="Hà Nội">Hà Nội</option>
                                             <option value="TP Hồ Chí Minh">TP Hồ Chí Minh</option>
                                             <option value="Đà Nẵng">Đà Nẵng</option>
