@@ -20,8 +20,8 @@ router.get('/', (req, res) => {
 });
 
 router.post('/',
-    body('user').not().isEmpty().length({ min: 10, max: 10 }),
-    body('pass').not().isEmpty().length({ min: 6 }),
+    body('user').not().isEmpty().isLength({ min: 10, max: 10 }),
+    body('pass').not().isEmpty().isLength({ min: 6 }),
     (req, res) => {
         let errors = validationResult(req);
         if (!errors.isEmpty) {
@@ -39,28 +39,41 @@ router.post('/',
         User.findOne({ username: username }, (err, row) => {
             if (err) console.log(err);
             if (row !== null) {
-                if (row.username == username) {
-                    bcrypt.compare(password, row.password, (err, result) => {
-                        if (err) console.log(err);
-                        if (result) {
-                            req.session.username = username;
-                            if (row.isFirstLogin) {
-                                return res.redirect(303, '/changepassword');
+                if (row.statusAccount != 'CHỜ XÁC MINH') {
+                    if (row.username == username) {
+                        bcrypt.compare(password, row.password, (err, result) => {
+                            if (err) console.log(err);
+                            if (result) {
+                                req.session.username = username;
+                                console.log(req.session.username)
+                                if (row.isFirstLogin) {
+                                    return res.redirect(303, '/changepassword');
+                                } else {
+                                    return res.redirect(303, '/home');
+                                }
                             } else {
-                                return res.redirect(303, '/home');
+                                let context = {
+                                    title: 'Login | BKTPay',
+                                    layout: 'sublayout',
+                                    errors: [
+                                        'Password is invalid'
+                                    ],
+                                }
+                                res.status(401);
+                                return res.render('login', context);
                             }
-                        } else {
-                            let context = {
-                                title: 'Login | BKTPay',
-                                layout: 'sublayout',
-                                errors: [
-                                    'Password is invalid'
-                                ],
-                            }
-                            res.status(401);
-                            return res.render('login', context);
-                        }
-                    })
+                        })
+                    }
+                } else {
+                    let context = {
+                        title: 'Login | BKTPay',
+                        layout: 'sublayout',
+                        errors: [
+                            'Account has not actived'
+                        ],
+                    }
+                    res.status(401);
+                    return res.render('login', context);
                 }
             } else {
                 let context = {
