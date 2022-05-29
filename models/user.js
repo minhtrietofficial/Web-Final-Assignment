@@ -30,6 +30,7 @@ var userSchema = mongoose.Schema({
     },
     frontNationalId: String,
     backNationalId: String,
+    isFirstLogin: Boolean,
 });
 
 module.exports = mongoose.model('User', userSchema);
