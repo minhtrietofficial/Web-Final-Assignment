@@ -9,7 +9,7 @@ var { body, validationResult } = require('express-validator');
 router.use(session({ secret: credentials.session.key }));
 
 router.get('/', (req, res) => {
-    if (req.session.username !== undefined) {
+    if (req.session.username === undefined) {
         return res.redirect(303, '/login');
     }
     let context = {
@@ -20,8 +20,9 @@ router.get('/', (req, res) => {
 });
 
 router.post('/',
-    body('password').not().isEmpty().length({ min: 6 }),
+    body('password').not().isEmpty().isLength({ min: 6 }),
     (req, res) => {
+        console.log(1)
         let errors = validationResult(req);
         if (!errors.isEmpty) {
             let context = {
@@ -48,11 +49,11 @@ router.post('/',
                             {
                                 $set: {
                                     password: hash,
+                                    isFirstLogin: false,
                                 }
                             }
                         )
                             .then(() => {
-                                row.isFirstLogin = false;
                                 res.redirect(303, '/home');
                             })
                             .catch(err => {
