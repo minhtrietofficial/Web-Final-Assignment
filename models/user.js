@@ -30,7 +30,10 @@ var userSchema = mongoose.Schema({
     },
     frontNationalId: String,
     backNationalId: String,
-    isFirstLogin: Boolean,
+    isFirstLogin: {
+        type: Boolean,
+        default: true,
+    },
     created: {
         type: Date,
         default: Date.now(),
