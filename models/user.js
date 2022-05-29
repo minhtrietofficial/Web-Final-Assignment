@@ -30,6 +30,38 @@ var userSchema = mongoose.Schema({
     },
     frontNationalId: String,
     backNationalId: String,
+    isFirstLogin: {
+        type: Boolean,
+        default: true,
+    },
+    created: {
+        type: Date,
+        default: Date.now(),
+    },
+    lastModified: {
+        type: Date,
+        default: Date.now(),
+    },
+    failedLogin: {
+        type: Number,
+        default: 0,
+    },
+    unusualLogin: {
+        type: Number,
+        default: 0,
+    },
+    forbiddenTime: {
+        type: Number,
+        default: 0,
+    },
+    role: {
+        type: String,
+        default: 'user',
+    },
+    coin: {
+        type: Number,
+        default: 0,
+    },
 });
 
 module.exports = mongoose.model('User', userSchema);

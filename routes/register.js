@@ -19,6 +19,9 @@ let transporter = nodemailer.createTransport({
 });
 
 router.get('/', (req, res) => {
+    if (req.session.username !== undefined) {
+        return res.redirect(303, '/home');
+    }
     let context = {
         title: 'Register | BKTPay',
         layout: 'sublayout'
@@ -149,7 +152,7 @@ router.post('/',
                                                                 Information of your account:<br>
                                                                 -username: ${username}<br>
                                                                 -password: ${password}<br>
-                                                                Please access http://localhost:3000/register/active/${username} to active your account.<br>
+                                                                Please wait administrator active your account (1 - 3 days).<br>
                                                                 Thank you.<br>
                                                                 -- BKTTT Team --`,
                                                             }, function (err, info) {
@@ -165,7 +168,7 @@ router.post('/',
                                                                     return res.render('announce', {
                                                                         title: 'Register | BKTPay',
                                                                         layout: 'sublayout',
-                                                                        content: 'You has been signed up successfully<br>Please check your email to get and active your account!',
+                                                                        content: 'You has been signed up successfully<br>Please check your email to get your account information!',
                                                                     })
                                                                 }
                                                             });
@@ -187,7 +190,7 @@ router.post('/',
             });
             break;
         }
-        
+
     });
 
 router.get('/active/:username', (req, res) => {

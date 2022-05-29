@@ -10,5 +10,8 @@ module.exports = {
             username: 'ewallet.bktttteam@gmail.com',
             password: 'kijhfmixoslccupk',
         }
+    },
+    session: {
+        key: 'bkttt'
     }
 }
