@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var credentials = require('./credentials');
 var mongoose = require('mongoose');
+var session = require('express-session');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -29,6 +30,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({ secret: credentials.session.key }));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
@@ -36,7 +38,7 @@ app.use('/home', homeRouter);
 app.use('/register', registerRouter);
 app.use('/login', loginRouter);
 app.use('/resetpassword', resetpasswordRouter);
-app.user('/changepassword', changepasswordRouter);
+app.use('/changepassword', changepasswordRouter);
 //test---------------------------------------------------
 var home1Router = require('./routes/home1');
 app.use('/home1', home1Router);
