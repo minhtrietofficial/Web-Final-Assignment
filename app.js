@@ -12,7 +12,7 @@ var homeRouter = require('./routes/home');
 var registerRouter = require('./routes/register');
 var loginRouter = require('./routes/login');
 var resetpasswordRouter = require('./routes/resetpassword');
-
+var changepasswordRouter = require('./routes/changepassword');
 
 var app = express();
 
@@ -35,12 +35,26 @@ app.use('/home', homeRouter);
 app.use('/register', registerRouter);
 app.use('/login', loginRouter);
 app.use('/resetpassword', resetpasswordRouter);
+app.use('/changepassword', changepasswordRouter);
+
 //test---------------------------------------------------
 var home1Router = require('./routes/home1');
 app.use('/home1', home1Router);
 
 //--------------------------------------------------------
+app.get('/login', (req, res) => {
+  let context = {
+    title: 'Login | BKTPay',
+    layout: 'sublayout'
+  }
+  res.render('login', context);
+});
 
+app.post('/login', (req, res) => {
+  let username = req.body.username;
+  let password = req.body.password;
+  res.send(`Username: ${username} Password: ${password}`);
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

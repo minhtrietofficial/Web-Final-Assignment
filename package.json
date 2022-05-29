@@ -17,6 +17,20 @@
     "mongoose": "^6.3.4",
     "morgan": "~1.9.1",
     "multer": "^1.4.4",
-    "nodemailer": "^6.7.5"
-  }
+    "nodemailer": "^6.7.5",
+    "phone-number-input-field": "^0.1.6"
+  },
+  "description": "Open new Terminal\r 1. Type 'npm install'\r 2. Type 'npm start'\r => Port 3000 is already in use\r 3. Type 'http://localhost:3000/' in your browser...",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/minhtrietofficial/Web-Final-Assignment.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/minhtrietofficial/Web-Final-Assignment/issues"
+  },
+  "homepage": "https://github.com/minhtrietofficial/Web-Final-Assignment#readme"
 }
