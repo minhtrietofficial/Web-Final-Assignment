@@ -51,12 +51,18 @@ router.post('/',
                                 }
                             }
                         )
-                            .then(() => res.redirect(303, '/home'))
-                            .catch(err => res.render('announce', {
-                                title: 'Register | BKTPay',
-                                layout: 'sublayout',
-                                content: err,
-                            }))
+                            .then(() => {
+                                row.isFirstLogin = false;
+                                res.redirect(303, '/home');
+                            })
+                            .catch(err => {
+                                req.session.username = undefined;
+                                return res.render('announce', {
+                                    title: 'Login | BKTPay',
+                                    layout: 'sublayout',
+                                    content: err,
+                                });
+                            })
                     });
                 });
             } else {
