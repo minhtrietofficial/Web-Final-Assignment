@@ -39,6 +39,10 @@ var userSchema = mongoose.Schema({
         type: Date,
         default: Date.now(),
     },
+    failedLogin: {
+        type: Number,
+        default: 0,
+    },
     unusualLogin: {
         type: Number,
         default: 0,
