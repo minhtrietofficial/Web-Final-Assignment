@@ -11,6 +11,8 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var homeRouter = require('./routes/home');
 var registerRouter = require('./routes/register');
+var logoutRouter = require('./routes/logout');
+
 var loginRouter = require('./routes/login');
 var resetpasswordRouter = require('./routes/resetpassword');
 var changepasswordRouter = require('./routes/changepassword');
@@ -36,6 +38,8 @@ app.use('/users', usersRouter);
 app.use('/home', homeRouter);
 app.use('/register', registerRouter);
 app.use('/login', loginRouter);
+app.use('/logout', logoutRouter);
+
 app.use('/resetpassword', resetpasswordRouter);
 app.use('/changepassword', changepasswordRouter);
 //test---------------------------------------------------

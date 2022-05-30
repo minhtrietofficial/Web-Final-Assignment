@@ -37,42 +37,10 @@ body {
 .thin::-webkit-scrollbar {
     width: 6px;
 }
-
-.sidenav {
-    grid-area: sidenav;
+.home{
+    z-index: 1;
+    flex-direction: row;
 }
-
-.headerofpage {
-    grid-area: headerofpage;
-}
-
-.contentleft {
-    grid-area: contentleft;
-}
-
-.contentright {
-    grid-area: contentright;
-}
-
-.grid-container {
-    display: grid;
-
-    grid-template:
-        'sidenav headerofpage headerofpage headerofpage headerofpage headerofpage '
-        'sidenav contentleft contentleft contentright contentright contentright';
-    grid-gap: 10px;
-    background-color: #2196F3;
-    padding: 10px;
-
-}
-
-.grid-container>div {
-    background-color: rgba(255, 255, 255, 0.8);
-    text-align: center;
-    padding: 20px 0;
-    font-size: 30px;
-}
-
 /*Homepage*********************************/
 .home .sidenav {
     height: 100%;
@@ -162,7 +130,10 @@ body {
     flex-direction: column;
 
 }
+.home .account[typeaccount="admin"] {
+    display: none;
 
+}
 .home .account .sodu {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 15px;
@@ -194,7 +165,10 @@ body {
     justify-content: center;
 
 }
+.home .transaction[typeaccount="admin"] {
+    display: none;
 
+}
 .home .nametransaction {
     font-size: 14px;
     font-weight: 400;
@@ -220,6 +194,9 @@ body {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: left;
+}
+.home .panel[typeaccount="admin"] {
+    display: none;
 }
 
 .home .panel .panel-group-transaction {
@@ -250,3 +227,76 @@ body {
 }
 
 /***************************************************/
+.headerofpage{
+    height: 50px;
+    margin-left:320px; 
+    background-color: #041b20c0;
+}
+
+.headerofpage .logoutbutton{
+    margin-left: 15px;
+}
+.statusaccount[typeaccount="admin"]{
+    display: none;
+}
+.statusaccount[statusaccount="ĐÃ XÁC MINH"]{
+    display: none;
+}
+
+.statusaccount[statusaccount="CHỜ XÁC MINH"]{
+    top: 0;
+    flex: 1;
+    background-color: red;
+    margin-left: 320px;
+    text-align: center;
+    color: #fff;
+    font-weight: 500;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+/*******************************************************/
+.home .manage {
+    background-color: #2C4044;
+    border-radius: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    position: relative;
+    width: 280px;
+    max-width: 100%;
+    text-align: center;
+    margin-top: 5px;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: left;
+}
+.home .manage[typeaccount="user"] {
+    display: none;
+}
+
+.home .manage .manage-group-transaction {
+    width: 100%;
+    background-color: none;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: left;
+}
+
+.manage-group-logo {
+    margin-left: 15px;
+
+}
+
+.manage-group-nametransaction {
+    color: #fff;
+    font-weight: 400;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}

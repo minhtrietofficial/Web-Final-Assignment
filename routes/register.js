@@ -159,6 +159,7 @@ router.post('/',
                                                                 if (err) {
                                                                     console.log(err);
                                                                     return res.render('announce', {
+                                                                        Nameresult: 'Đăng kí tài khoản thất bại',
                                                                         title: 'Register | BKTPay',
                                                                         layout: 'sublayout',
                                                                         content: 'You has been signed up not successfully<br>Please sign up again!',
@@ -166,6 +167,7 @@ router.post('/',
                                                                 } else {
                                                                     console.log(info.response);
                                                                     return res.render('announce', {
+                                                                        Nameresult: 'Đăng kí tài khoản thành công',
                                                                         title: 'Register | BKTPay',
                                                                         layout: 'sublayout',
                                                                         content: 'You has been signed up successfully<br>Please check your email to get your account information!',
