@@ -300,3 +300,12 @@ body {
     justify-content: center;
 
 }
+
+.home .content{
+    border-radius: 20px;
+    margin-top: 10px;
+    margin-left: 330px; 
+    margin-right: 10px;
+    background-color: #041b20c0;
+    height:auto;
+}

@@ -121,10 +121,40 @@
         </div>
     </div>
     
+
     <div class="content">
-        
+<div class="info">
+            Danh sách tài khoản chờ duyệt
+</div>
+<div class="table-responsive">
+      <table class="table table-hover table-striped rounded-3">  <!-- table-striped là tô màu xen kẽ -->
+        <thead class="table-success text-center">
+          <tr>
+            <td>STT</td>
+            <td>Họ và tên</td>
+            <td 
+            >Thời gian tạo</td>    
+            <td colspan ="2" >Thao tác</td>     
+                               
+          </tr>
+         
+        </thead>
+         {{#each thongtincanhan}}
+         <tbody class="table-light text-center">
+           <tr>
+            <td>{{sum @index 1}}</td>
+            <td>{{this.name}}</td>
+            <td>{{this.createAt}}</td> 
+            <td colspan ="2"><a class="btn btn-light" href="/chitiettkdxn/{{this._id}}">Thông tin chi tiết</a></td>
+          </tr>
+           
+            
 
-        
+          </tbody>   {{/each}}
+         
+       
+                   
+                </table>
+        </div> 
     </div>
-
 </div>

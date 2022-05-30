@@ -16,6 +16,7 @@ var logoutRouter = require('./routes/logout');
 var loginRouter = require('./routes/login');
 var resetpasswordRouter = require('./routes/resetpassword');
 var changepasswordRouter = require('./routes/changepassword');
+var activeaccountRouter = require('./routes/activeaccount');
 
 var app = express();
 
@@ -39,7 +40,7 @@ app.use('/home', homeRouter);
 app.use('/register', registerRouter);
 app.use('/login', loginRouter);
 app.use('/logout', logoutRouter);
-
+app.use('/activeaccount', activeaccountRouter);
 app.use('/resetpassword', resetpasswordRouter);
 app.use('/changepassword', changepasswordRouter);
 //test---------------------------------------------------

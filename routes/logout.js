@@ -6,21 +6,16 @@ var credentials = require('../credentials');
 router.use(session({ secret: credentials.session.key }));
 
 router.get('/', function (req, res, next) {
-  if (req.session.username === undefined) {
-    return res.redirect(303, '/');
-  }
+  req.session.username = undefined;
   let context = {
     Nameresult: 'Đăng xuất thành công',
     title: 'Logout | BKTPay',
     layout: 'sublayout',
-    content: 'Đăng xuất thành công'
+    content: 'Chúng tôi sẽ tự động đưa bạn về trang chủ, đợi chút...'
   }
   res.render('announce', context);
 });
 
-router.post('/', (req, res) => {
-    req.session = null
-    res.json({ logout: true })
-})
+
 
 module.exports = router;

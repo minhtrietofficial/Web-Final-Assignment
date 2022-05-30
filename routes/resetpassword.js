@@ -67,14 +67,14 @@ router.post('/', (req, res) => {
                                             return res.render('announce', {
                                                 title: 'Reset Password | BKTPay',
                                                 layout: 'sublayout',
-                                                content: 'You has been sent reset password request not successfully<br>Please try again!',
+                                                content: 'You has been sent reset password request not successfully<br>Please try again! Chúng tôi sẽ tự động đưa bạn về trang chủ, đợi chút...',
                                             });
                                         } else {
                                             console.log(info.response);
                                             return res.render('announce', {
                                                 title: 'Reset Password | BKTPay',
                                                 layout: 'sublayout',
-                                                content: 'You has been sent reset password request successfully<br>Please check your email to get your new password!',
+                                                content: 'You has been sent reset password request successfully<br>Please check your email to get your new password! Chúng tôi sẽ tự động đưa bạn về trang chủ, đợi chút...',
                                             });
                                         }
                                     });
