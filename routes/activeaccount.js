@@ -9,33 +9,37 @@ router.get('/', function (req, res, next) {
   if (req.session.username === undefined) {
     return res.redirect(303, '/');
   }
-  let context = {
-
-  }
   User.findOne({ username: req.session.username }, (err, row) => {
     if (err)
       console.log(err);
     if (row != null) {
-      context = {
-        fullname: row.firstName + ' ' + row.lastName,
-        typeaccount: row.role,
-        numberphone: row.numberphone,
-        money: row.coin,
-        status: row.statusAccount,
-        title: 'Home | BKTPay',
-        layout: 'layout'
-      }
+      User.find({ statusAccount: "ĐÃ XÁC MINH" }, (err, rows) => {
+        if (err) console.log(err);
+        if (rows != null) {
+          let users = rows.map(row => {
+            return {
+              username: row.username,
+              statusAccount: row.statusAccount,
+            }
+          });
+          let context = {
+            fullname: row.firstName + ' ' + row.lastName,
+            typeaccount: row.role,
+            numberphone: row.numberphone,
+            money: row.coin,
+            status: row.statusAccount,
+            users: users,
+            title: 'Home | BKTPay',
+            layout: 'layout'
+          }
+          return res.render('activeaccount', context);
+        } else {
+          res.redirect(303, '/home');
+        }
+      });
+    } else {
+      res.redirect(303, '/home');
     }
   });
-  User.find({statusAccount: "ĐÃ XÁC MINH"}).sort({created: -1})
-      .then(User => {
-        User = User.map(User => User.toObject())
-        for (var i = 0; i < User.length; i++) {
-          User[i].created = User[i].created.toLocaleDateString("en-US")
-        }
-        context["users"] = User;
-      })
-  console.log(context);
-  return res.render('activeaccount', context);
 });
 module.exports = router;
