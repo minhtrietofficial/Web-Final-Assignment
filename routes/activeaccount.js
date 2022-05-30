@@ -5,16 +5,18 @@ var credentials = require('../credentials');
 var User = require('../models/user');
 router.use(session({ secret: credentials.session.key }));
 
-/* GET home page. */
 router.get('/', function (req, res, next) {
   if (req.session.username === undefined) {
     return res.redirect(303, '/');
   }
-  User.findOne({username:req.session.username},(err, row) => {
-    if(err)
+  let context = {
+
+  }
+  User.findOne({ username: req.session.username }, (err, row) => {
+    if (err)
       console.log(err);
-    if(row != null){
-      let context = {
+    if (row != null) {
+      context = {
         fullname: row.firstName + ' ' + row.lastName,
         typeaccount: row.role,
         numberphone: row.numberphone,
@@ -23,10 +25,17 @@ router.get('/', function (req, res, next) {
         title: 'Home | BKTPay',
         layout: 'layout'
       }
-      return res.render('activeaccount', context);
     }
-  })
+  });
+  User.find({statusAccount: "ĐÃ XÁC MINH"}).sort({created: -1})
+      .then(User => {
+        User = User.map(User => User.toObject())
+        for (var i = 0; i < User.length; i++) {
+          User[i].created = User[i].created.toLocaleDateString("en-US")
+        }
+        context["users"] = User;
+      })
+  console.log(context);
+  return res.render('activeaccount', context);
 });
-
-
 module.exports = router;

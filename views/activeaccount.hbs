@@ -3,14 +3,14 @@
     <div class="headerofpage d-flex justify-content-end">
         <div class="content"></div>
         <div class="nameoftransaction">
-            
+
         </div>
         <div class="changepassbutton"><a href="changepassword" style="text-decoration:none">
-            <img src="resources/images/icons8-key-96.png" height="50" alt="Changepass" /></a>
+                <img src="resources/images/icons8-key-96.png" height="50" alt="Changepass" /></a>
 
         </div>
         <div class="logoutbutton"><a href="logout" style="text-decoration:none">
-            <img src="resources/images/icons8-logout-96.png" height="50" alt="Logout" /></a>
+                <img src="resources/images/icons8-logout-96.png" height="50" alt="Logout" /></a>
 
         </div>
 
@@ -37,7 +37,7 @@
             <div class="money">10.000.000 VNĐ</div>
         </div>
         <div class="transaction" typeaccount="{{typeaccount}}">
-            <div class="transactionname" ><a href="home" style="text-decoration:none">
+            <div class="transactionname"><a href="home" style="text-decoration:none">
                     <img class="icon" src="resources/images/icons8-exchange-96.png" height="60" alt="Chuyển tiền" />
                     <div class="nametransaction">Chuyển tiền</div>
                 </a>
@@ -88,7 +88,8 @@
                 <div class="manage-group-logo manage-group-logoandname">
                     <img src="resources/images/icons8-management-96.png" height="60" alt="Nạp tiền điện thoại" />
                 </div>
-                <a class="manage-group-nametransaction manage-group-logoandname align-center" href="activeaccount" style="text-decoration:none">Kích hoạt tài khoản</a>
+                <a class="manage-group-nametransaction manage-group-logoandname align-center" href="activeaccount"
+                    style="text-decoration:none">Kích hoạt tài khoản</a>
                 <hr width="100%" color="white" align="center" size="2px">
             </div>
             <div class="manage-group-transaction">
@@ -120,41 +121,30 @@
             </div>
         </div>
     </div>
-    
-
     <div class="content">
-<div class="info">
+        <div class="info">
             Danh sách tài khoản chờ duyệt
-</div>
-<div class="table-responsive">
-      <table class="table table-hover table-striped rounded-3">  <!-- table-striped là tô màu xen kẽ -->
-        <thead class="table-success text-center">
-          <tr>
-            <td>STT</td>
-            <td>Họ và tên</td>
-            <td 
-            >Thời gian tạo</td>    
-            <td colspan ="2" >Thao tác</td>     
-                               
-          </tr>
-         
-        </thead>
-         {{#each thongtincanhan}}
-         <tbody class="table-light text-center">
-           <tr>
-            <td>{{sum @index 1}}</td>
-            <td>{{this.name}}</td>
-            <td>{{this.createAt}}</td> 
-            <td colspan ="2"><a class="btn btn-light" href="/chitiettkdxn/{{this._id}}">Thông tin chi tiết</a></td>
-          </tr>
-           
-            
-
-          </tbody>   {{/each}}
-         
-       
-                   
-                </table>
-        </div> 
+        </div>
+        <div class="table-responsive">
+            <table class="table table-hover table-striped rounded-3">
+                <!-- table-striped là tô màu xen kẽ -->
+                <thead class="table-success text-center">
+                    <tr>
+                        <td>Họ và tên</td>
+                        <td>Thời gian tạo</td>
+                        <td colspan="2">Thao tác</td>
+                    </tr>
+                </thead>
+                {{#each users}}
+                <tbody class="table-light text-center">
+                    <tr>
+                        <td>{{this.username}}</td>
+                        <td>{{this.statusAccount}}</td>
+                        <td colspan="2"><a class="btn btn-light" href="/">Thông tin chi tiết</a></td>
+                    </tr>
+                </tbody> 
+                {{/each}}
+            </table>
+        </div>
     </div>
 </div>

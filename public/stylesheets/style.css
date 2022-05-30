@@ -167,7 +167,6 @@ body {
 }
 .home .transaction[typeaccount="admin"] {
     display: none;
-
 }
 .home .nametransaction {
     font-size: 14px;
