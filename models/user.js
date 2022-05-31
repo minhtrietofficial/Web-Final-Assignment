@@ -62,6 +62,14 @@ var userSchema = mongoose.Schema({
         type: Number,
         default: 0,
     },
+    OTP: {
+        type: String,
+        default: '',
+    },
+    expiredOTP: {
+        type: Number,
+        default: Date.now() + 60,
+    },
 });
 
 module.exports = mongoose.model('User', userSchema);
