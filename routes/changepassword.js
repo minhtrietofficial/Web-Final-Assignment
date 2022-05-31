@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
         return res.redirect(303, '/login');
     }
     let context = {
-        title: 'Change Password | BKTPay',
+        title: 'Đổi mật khẩu | BKTPay',
         layout: 'sublayout'
     }
     res.render('changepassword', context);
@@ -21,11 +21,11 @@ router.get('/', (req, res) => {
 
 router.get('/user', (req, res) => {
     let context = {
-        title: 'Change Password | BKTPay',
+        title: 'Đổi mật khẩu | BKTPay',
         layout: 'sublayout'
     }
     res.render('changepassword_user', context);
-})
+});
 
 router.post('/',
     body('password').not().isEmpty().isLength({ min: 6 }),
@@ -77,7 +77,7 @@ router.post('/',
                 });
             } else {
                 let context = {
-                    title: 'Change Password | BKTPay',
+                    title: 'Đổi mật khẩu | BKTPay',
                     layout: 'sublayout',
                     errors: [
                         'Username is invalid'
