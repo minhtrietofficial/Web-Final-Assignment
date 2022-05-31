@@ -1,13 +1,103 @@
-<div class="content">
-    <div class="info">
-        Danh sách tài khoản chờ duyệt
+<div class="content detaiLuser">
+
+    {{#if user}}
+    <div class="titlecardinfo">
+        Thông tin tài khoản
     </div>
     <div class="cardinfo">
+        <div class="row mb-3">
+            <div class=" col-md-6">
+                <div class="titleinfo ">
+                    Họ và tên
+                </div>
+            </div>
+            <div class=" col-md-6">
+                <div class="infouser name">
+                    {{user.fullname2}}
+                </div>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class=" col-md-6">
+                <div class="titleinfo">
+                    Giới tính
+                </div>
+            </div>
+            <div class=" col-md-6">
+                <div class="infouser">
+                    {{user.gender2}}
+                </div>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class=" col-md-6">
+                <div class="titleinfo">
+                    Số điện thoại
+                </div>
+            </div>
+            <div class=" col-md-6">
+                <div class="infouser">
+                    {{user.numberphone2}}
+                </div>
+            </div>
+        </div>
 
-        {{#if user}}
-        {{user.fullname2}}
-        {{user.datecreate2}}
-        {{user.statusAccount2}}
+        <div class="row mb-3">
+            <div class=" col-md-6">
+                <div class="titleinfo">
+                    Email
+                </div>
+            </div>
+            <div class=" col-md-6">
+                <div class="infouser">
+                    {{user.email2}}
+                </div>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class=" col-md-6">
+                <div class="titleinfo">
+                    Số dư
+                </div>
+            </div>
+            <div class=" col-md-6">
+                <div class="infouser money">
+                    {{user.money2}} VNĐ
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class=" col-md-6">
+                <div class="titleinfo">
+                    Ngày tạo
+                </div>
+            </div>
+            <div class=" col-md-6">
+                <div class="infouser">
+                    {{user.datecreate2}}
+                </div>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class=" col-md-6">
+                <div class="titleinfo">
+                    Trạng thái tài khoản
+                </div>
+            </div>
+            <div class=" col-md-6">
+                <div class="infouser statusaccount" detailstatusaccount="{{user.statusAccount2}}">
+                    {{user.statusAccount2}}
+                </div>
+            </div>
+        </div>
+        <div class="row mb-3 cccd" cccd="{{user.cccd2}}">
+            <div class="col-md-12 note">
+                Tài khoản cần được bổ sung lại ảnh Căn cước công dân
+            </div>
+        </div>
+
+
 
 
         {{/if}}

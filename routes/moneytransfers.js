@@ -32,7 +32,7 @@ router.get('/', function (req, res, next) {
             money: row.coin,
             status: row.statusAccount,
             credits: credits,
-            title: 'Home | BKTPay',
+            title: 'Chuyển tiền | BKTPay',
             layout: 'layout'
           }
           return res.render('moneytransfers', context);

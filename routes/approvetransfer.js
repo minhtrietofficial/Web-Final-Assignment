@@ -41,7 +41,7 @@ router.get('/', function (req, res, next) {
             money: row.coin,
             status: row.statusAccount,
             trans: trans,
-            title: 'Home | BKTPay',
+            title: 'Phê duyệt chuyển tiền | BKTPay',
             layout: 'layout'
           }
           return res.render('approvetransfer', context);

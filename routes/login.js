@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
         return res.redirect(303, '/home');
     }
     let context = {
-        title: 'Login | BKTPay',
+        title: 'Đăng nhập | BKTPay',
         layout: 'sublayout'
     }
     res.render('login', context);
@@ -26,7 +26,7 @@ router.post('/',
         let errors = validationResult(req);
         if (!errors.isEmpty) {
             let context = {
-                title: 'Login | BKTPay',
+                title: 'Đăng nhập | BKTPay',
                 layout: 'sublayout',
                 errors: errors.array(),
             }
@@ -52,7 +52,7 @@ router.post('/',
                             }
                         } else {
                             let context = {
-                                title: 'Login | BKTPay',
+                                title: 'Đăng nhập | BKTPay',
                                 layout: 'sublayout',
                                 errors: [
                                     'Password is invalid'
@@ -66,7 +66,7 @@ router.post('/',
 
             } else {
                 let context = {
-                    title: 'Login | BKTPay',
+                    title: 'Đăng nhập | BKTPay',
                     layout: 'sublayout',
                     errors: [
                         'Username is invalid'

@@ -473,7 +473,7 @@ body {
     font-weight: 400;
     font-size: 16px;
     font-family: Arial, Helvetica, sans-serif;
-    text-transform: uppercase;
+    text-transform: capitalize;
     color: #fff;
 }
 
@@ -494,6 +494,9 @@ body {
     background-color: none;
     background: none;
 }
+.updateinfo .name{
+    text-transform: capitalize;
+}
 .seeinfo[statusaccount="ĐÃ XÁC MINH"]{
     color: rgb(183, 200, 25);
 
@@ -501,6 +504,7 @@ body {
 .seeinfo[statusaccount="CHỜ XÁC MINH"]{
     display: none;
 }
+
 .seeinfo a{
     text-decoration: none;
     color: rgb(183, 200, 25);
@@ -1020,4 +1024,34 @@ input[type=number]::-webkit-outer-spin-button {
     text-align: center;
     font-family:Arial, Helvetica, sans-serif;
 
+}
+.detaiLuser .money{
+    color: #50ba13;
+}
+.detaiLuser .statusaccount[detailstatusaccount="TỪ CHỐI XÁC MINH"]{
+    color: #baba13;
+}
+.detaiLuser .statusaccount[detailstatusaccount="ĐÃ XÁC MINH"]{
+    color: #50ba13;
+}
+.detaiLuser .statusaccount[detailstatusaccount="CHỜ XÁC MINH"]{
+    color: #ba8213;
+}
+.detaiLuser .statusaccount[detailstatusaccount="CHỜ XÁC MINH"]{
+    color: #ba8213;
+}
+
+.detaiLuser .note[cccd="0"]{
+    display: none;
+
+}
+.detaiLuser .note[cccd="1"]{
+    text-align: center;
+    color: rgb(224, 14, 14);
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+.detaiLuser .name{
+    text-transform: capitalize;
 }

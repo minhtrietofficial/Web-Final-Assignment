@@ -3,6 +3,8 @@ var router = express.Router();
 var session = require('express-session');
 var credentials = require('../credentials');
 var User = require('../models/user');
+var Transaction = require('../models/transaction');
+
 router.use(session({ secret: credentials.session.key }));
 
 router.get('/:username', function (req, res, next) {
@@ -18,30 +20,26 @@ router.get('/:username', function (req, res, next) {
             User.findOne({ username: username }, (err2, row2) => {
                 if (err2) console.log(err2);
                 if (row2 != null) {
-                   
+                    // let user = 
+                    // console.log(user);
+
                     let context = {
                         fullname: row.firstName + ' ' + row.lastName,
                         typeaccount: row.role,
                         numberphone: row.numberphone,
                         money: row.coin,
                         status: row.statusAccount,
-                        title: 'Chi tiết tài khoản | BKTPay',
-                        layout: 'layout',
                         user: {
                             fullname2: row2.firstName + ' ' + row2.lastName,
                             username2: row2.username,
                             datecreate2: row2.created,
-                            statusAccount2: row2.statusAccount,
-                            email2: row2.email + '@gmail.com',
-                            gender2: row2.gender, 
-                            numberphone2: row2.numberphone,
-                            money2: row2.coin,
-                            cccd2: row2.cccd,
-                        }
-                        
+                            statusAccount2: row2.statusAccount
+                        }, 
+                        title: 'Lịch sử giao dịch | BKTPay',
+                        layout: 'layout'
                     }
-                    console.log(context.layout);
-                    return res.render('detailuser', context);
+                    console.log(context.user);
+                    return res.render('historytran', context);
                 } else {
                     res.redirect(303, '/home');
                 }

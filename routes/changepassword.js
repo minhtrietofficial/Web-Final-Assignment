@@ -26,7 +26,7 @@ router.post('/',
         let errors = validationResult(req);
         if (!errors.isEmpty) {
             let context = {
-                title: 'Change Password | BKTPay',
+                title: 'Đổi mật khẩu | BKTPay',
                 layout: 'sublayout',
                 errors: errors.array(),
             }

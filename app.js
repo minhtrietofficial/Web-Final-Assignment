@@ -26,6 +26,7 @@ var accountbanedRouter = require('./routes/accountbaned');
 var accountunvailableRouter = require('./routes/accountunvailable');
 var approvewithdrawRouter = require('./routes/approvewithdraw');
 var approvetransferRouter = require('./routes/approvetransfer');
+var historytranRouter = require('./routes/historytran');
 
 var app = express();
 
@@ -62,6 +63,7 @@ app.use('/accountbaned', accountbanedRouter);
 app.use('/accountunvailable', accountunvailableRouter);
 app.use('/approvewithdraw', approvewithdrawRouter);
 app.use('/approvetransfer', approvetransferRouter);
+app.use('/historytran', historytranRouter);
 
 //--------------------------------------------------------
 app.get('/login', (req, res) => {

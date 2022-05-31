@@ -9,7 +9,7 @@ router.get('/', function (req, res, next) {
   req.session.username = undefined;
   let context = {
     Nameresult: 'Đăng xuất thành công',
-    title: 'Logout | BKTPay',
+    title: 'Đăng xuất | BKTPay',
     layout: 'sublayout',
     content: 'Chúng tôi sẽ tự động đưa bạn về trang chủ, đợi chút...'
   }

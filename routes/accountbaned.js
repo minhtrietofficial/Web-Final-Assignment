@@ -31,7 +31,7 @@ router.get('/', function (req, res, next) {
             money: row.coin,
             status: row.statusAccount,
             users: users,
-            title: 'Home | BKTPay',
+            title: 'Tài khoản bị khóa vĩnh viễn | BKTPay',
             layout: 'layout'
           }
           return res.render('accountbaned', context);

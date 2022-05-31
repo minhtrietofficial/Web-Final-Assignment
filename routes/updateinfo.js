@@ -23,7 +23,7 @@ router.get('/', function (req, res, next) {
         money: row.coin,
         status: row.statusAccount,
         cccd: row.cccd,
-        title: 'Home | BKTPay',
+        title: 'Thông tin tài khoản | BKTPay',
         layout: 'layout'
       }
       return res.render('updateinfo', context);
