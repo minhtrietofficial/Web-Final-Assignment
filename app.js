@@ -66,20 +66,6 @@ app.use('/approvetransfer', approvetransferRouter);
 app.use('/historytran', historytranRouter);
 
 //--------------------------------------------------------
-app.get('/login', (req, res) => {
-  let context = {
-    title: 'Login | BKTPay',
-    layout: 'sublayout'
-  }
-  res.render('login', context);
-});
-
-app.post('/login', (req, res) => {
-  let username = req.body.username;
-  let password = req.body.password;
-  res.send(`Username: ${username} Password: ${password}`);
-});
-
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
