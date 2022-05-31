@@ -13,7 +13,7 @@ router.get('/', function (req, res, next) {
     if (err)
       console.log(err);
     if (row != null) {
-      User.find({ statusAccount: "CHỜ XÁC MINH" }, (err, rows) => {
+      User.find({ role: "user" }, (err, rows) => {
         if (err) console.log(err);
         if (rows != null) {
           let users = rows.map(row => {
@@ -34,7 +34,7 @@ router.get('/', function (req, res, next) {
             title: 'Home | BKTPay',
             layout: 'layout'
           }
-          return res.render('activeaccount', context);
+          return res.render('account', context);
         } else {
           res.redirect(303, '/home');
         }

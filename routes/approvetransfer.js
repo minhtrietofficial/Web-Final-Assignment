@@ -3,6 +3,11 @@ var router = express.Router();
 var session = require('express-session');
 var credentials = require('../credentials');
 var User = require('../models/user');
+var Transaction = require('../models/transaction');
+
+
+
+
 router.use(session({ secret: credentials.session.key }));
 
 router.get('/', function (req, res, next) {
@@ -13,15 +18,20 @@ router.get('/', function (req, res, next) {
     if (err)
       console.log(err);
     if (row != null) {
-      User.find({ statusAccount: "CHỜ XÁC MINH" }, (err, rows) => {
+      Transaction.find({ deposit: {$gt:5000000} }, (err, rows) => { 
+        // gt >, >= gte, <lt 
         if (err) console.log(err);
         if (rows != null) {
-          let users = rows.map(row => {
+          let trans = rows.map(row => {
             return {
-              fullname: row.firstName + ' ' + row.lastName,
-              username: row.username,
-              datecreate: row.created,
-              statusAccount: row.statusAccount,
+              creator: row.creator,
+              receiver: row.receiver,
+              deposit: row.deposit,
+              note: row.note,
+              status: row.status,
+              created: row.created,
+
+
             }
           });
           let context = {
@@ -30,11 +40,11 @@ router.get('/', function (req, res, next) {
             numberphone: row.numberphone,
             money: row.coin,
             status: row.statusAccount,
-            users: users,
+            trans: trans,
             title: 'Home | BKTPay',
             layout: 'layout'
           }
-          return res.render('activeaccount', context);
+          return res.render('approvetransfer', context);
         } else {
           res.redirect(303, '/home');
         }
