@@ -15,10 +15,10 @@ router.get('/', function (req, res, next) {
     if (err)
       console.log(err);
     if (row != null) {
-        trans.find({$or:[{creator: req.session.username},{receiver: req.session.username}]}, (err, rows) => {
+        trans.find({$or:[{creator: req.session.username},{receiver: req.session.username},{status: "THÀNH CÔNG"}  ]}, (err, rows) => {
         if (err) console.log(err);
         if (rows != null) {
-          let credits = rows.map(row => {
+          let trans = rows.map(row => {
             return {
               receiver: row.receiver,
               creator: row.creator,
