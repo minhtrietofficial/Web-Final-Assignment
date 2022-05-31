@@ -42,11 +42,16 @@ router.post('/', (req, res) => {
                     User.findOne({ email: email }, (err, row) => {
                         if (err) console.log(err);
                         if (row !== undefined) {
+                            let otp = '';
+                            while (otp.length < 4) {
+                                otp += Math.floor(Math.random() * 10);
+                            }
                             User.updateOne(
                                 { email: { $eq: email } },
                                 {
                                     $set: {
-                                        password: hash,
+                                        OTP: otp,
+                                        expiredOTP: Date.now() + 60,
                                     }
                                 }
                             )
@@ -54,30 +59,69 @@ router.post('/', (req, res) => {
                                     transporter.sendMail({
                                         from: 'BKTTT Team',
                                         to: email + '@gmail.com',
-                                        subject: "Activation for your account",
+                                        subject: "Confirm reset password for your account",
                                         html: `Dear ${row.firstName} ${row.lastName},<br>
                                         You has been sent the request to reset your password.<br>
-                                        Your new password: ${password}<br>
-                                        Please login and change this password.<br>
+                                        OTP: ${otp}<br>
+                                        Please enter otp to confirm reset your password.<br>
                                         Thank you.<br>
                                         -- BKTTT Team --`,
-                                    }, function (err, info) {
-                                        if (err) {
+                                    })
+                                        .then(() => {
+                                            User.updateOne(
+                                                { email: { $eq: email } },
+                                                {
+                                                    $set: {
+                                                        password: hash,
+                                                    }
+                                                }
+                                            )
+                                                .then(() => {
+                                                    transporter.sendMail({
+                                                        from: 'BKTTT Team',
+                                                        to: email + '@gmail.com',
+                                                        subject: "Reset password for your account",
+                                                        html: `Dear ${row.firstName} ${row.lastName},<br>
+                                                        You has been sent the request to reset your password.<br>
+                                                        Your new password: ${password}<br>
+                                                        Please login and change this password.<br>
+                                                        Thank you.<br>
+                                                        -- BKTTT Team --`,
+                                                    }, function (err, info) {
+                                                        if (err) {
+                                                            console.log(err);
+                                                            return res.render('announce', {
+                                                                title: 'Reset Password | BKTPay',
+                                                                layout: 'sublayout',
+                                                                content: 'You has been sent reset password request not successfully<br>Please try again! Chúng tôi sẽ tự động đưa bạn về trang chủ, đợi chút...',
+                                                            });
+                                                        } else {
+                                                            console.log(info.response);
+                                                            return res.render('announce', {
+                                                                title: 'Reset Password | BKTPay',
+                                                                layout: 'sublayout',
+                                                                content: 'You has been sent reset password request successfully<br>Please check your email to get your new password! Chúng tôi sẽ tự động đưa bạn về trang chủ, đợi chút...',
+                                                            });
+                                                        }
+                                                    });
+                                                })
+                                                .catch(err => {
+                                                    console.log(err);
+                                                    return res.render('announce', {
+                                                        title: 'Reset Password | BKTPay',
+                                                        layout: 'sublayout',
+                                                        content: 'Server can not serve now. Please try again!',
+                                                    });
+                                                })
+                                        })
+                                        .catch(err => {
                                             console.log(err);
                                             return res.render('announce', {
                                                 title: 'Reset Password | BKTPay',
                                                 layout: 'sublayout',
-                                                content: 'You has been sent reset password request not successfully<br>Please try again! Chúng tôi sẽ tự động đưa bạn về trang chủ, đợi chút...',
+                                                content: 'Server can not serve now. Please try again!',
                                             });
-                                        } else {
-                                            console.log(info.response);
-                                            return res.render('announce', {
-                                                title: 'Reset Password | BKTPay',
-                                                layout: 'sublayout',
-                                                content: 'You has been sent reset password request successfully<br>Please check your email to get your new password! Chúng tôi sẽ tự động đưa bạn về trang chủ, đợi chút...',
-                                            });
-                                        }
-                                    });
+                                        })
                                 })
                                 .catch(err => {
                                     console.log(err);
