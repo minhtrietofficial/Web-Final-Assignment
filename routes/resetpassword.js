@@ -4,6 +4,9 @@ var bcrypt = require('bcrypt');
 var User = require('../models/user');
 var nodemailer = require('nodemailer');
 var credentials = require('../credentials');
+var session = require('express-session');
+
+router.use(session({ secret: credentials.session.key }));
 
 let transporter = nodemailer.createTransport({
     service: 'Gmail',
@@ -68,6 +71,7 @@ router.post('/', (req, res) => {
                             });
                         } else {
                             console.log(info.response);
+                            req.session.email = email;
                             return res.redirect(303, '/resetpassword/confirm');
                         }
                     })
@@ -87,7 +91,7 @@ router.post('/', (req, res) => {
 });
 
 router.post('/confirm', (req, res) => {
-    let email = req.body.email;
+    let email = req.session.email;
     let otp = req.body.otp;
     User.findOne({ email: email, OTP: otp }, (err, row) => {
         if (err) console.log(err);
@@ -118,6 +122,7 @@ router.post('/confirm', (req, res) => {
                                 }
                             )
                                 .then(() => {
+                                    req.session.email = undefined;
                                     transporter.sendMail({
                                         from: 'BKTTT Team',
                                         to: email + '@gmail.com',
@@ -187,6 +192,7 @@ router.post('/confirm', (req, res) => {
                                         })
                                 })
                                 .catch(err => {
+                                    req.session.email = undefined;
                                     console.log(err);
                                     return res.render('announce', {
                                         title: 'Reset Password | BKTPay',
@@ -199,6 +205,7 @@ router.post('/confirm', (req, res) => {
                 })
             })
         } else {
+            req.session.email = undefined;
             return res.redirect(303, '/resetpassword');
         }
     });
