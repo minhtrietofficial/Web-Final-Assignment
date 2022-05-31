@@ -21,6 +21,11 @@ var updateinfoRouter = require('./routes/updateinfo');
 var moneyrechargeRouter = require('./routes/moneyrecharge');
 var moneywithdrawRouter = require('./routes/moneywithdraw');
 var moneytransfersRouter = require('./routes/moneytransfers');
+var accountRouter = require('./routes/account');
+var accountbanedRouter = require('./routes/accountbaned');
+var accountunvailableRouter = require('./routes/accountunvailable');
+var approvewithdrawRouter = require('./routes/approvewithdraw');
+var approvetransferRouter = require('./routes/approvetransfer');
 
 var app = express();
 
@@ -52,7 +57,11 @@ app.use('/updateinfo', updateinfoRouter);
 app.use('/moneyrecharge', moneyrechargeRouter);
 app.use('/moneywithdraw', moneywithdrawRouter);
 app.use('/moneytransfers', moneytransfersRouter);
-
+app.use('/account', accountRouter);
+app.use('/accountbaned', accountbanedRouter);
+app.use('/accountunvailable', accountunvailableRouter);
+app.use('/approvewithdraw', approvewithdrawRouter);
+app.use('/approvetransfer', approvetransferRouter);
 
 //--------------------------------------------------------
 app.get('/login', (req, res) => {

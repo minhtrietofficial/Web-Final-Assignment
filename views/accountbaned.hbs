@@ -1,7 +1,7 @@
 <div class="content ">
     <div class="activeaccount">
         <div class="titlecardinfo">
-            Danh sách tài khoản chờ kích hoạt
+            Danh sách tài khoản bị cấm vĩnh viễn
         </div>
         <div class="table-responsive ">
             <table class="table table-hover table-dark table-striped">
@@ -12,7 +12,7 @@
                         <td>Username</td>
                         <td>Thời gian tạo</td>
                         <td>Trạng thái</td>
-                        <td colspan="4">Thao tác</td>
+                        <td colspan="1">Thao tác</td>
                     </tr>
                 </thead>
                 {{#each users}}
@@ -21,12 +21,13 @@
                         <td>{{this.fullname}}</td>
                         <td>{{this.username}}</td>
                         <td>{{this.datecreate}}</td>
+
                         <td>{{this.statusAccount}}</td>
-                        <td ><a class="btn btn-light" href="/detailuser/{{this.username}}">Thông tin chi tiết</a>
+                        <td ><a class="btn btn-light" href="/detailuser/{{this.username}}">Thông tin chi
+                                tiết</a>
                         </td>
-                        <td><a class="btn btn-success" href="/">Kích hoạt tài khoản</a></td>
-                        <td><a class="btn btn-warning" href="/">Yêu cầu bổ sung ảnh</a></td>
-                        <td><a class="btn btn-danger" href="/">Từ chối xác minh</a></td>
+                        
+
                     </tr>
                 </tbody>
                 {{/each}}
