@@ -1,0 +1,36 @@
+<div class="content ">
+    <div class="activeaccount">
+        <div class="titlecardinfo">
+            Danh sách giao dịch
+        </div>
+        <div class="table-responsive ">
+            <table class="table table-hover table-dark table-striped">
+                <!-- table-striped là tô màu xen kẽ -->
+                <thead class="table-success text-center">
+                    <tr class="text-center justify-content-center">
+                        <td>Giao dịch gửi</td>
+                        <td>Giao dịch nhận</td>
+                        <td>Nạp tiền</td>
+                        <td>Ngày giao dịch </td>
+                        <td>Ghi chú </td>
+                        <td>Trạng thái</td>
+                    </tr>
+                </thead>
+                {{#each trans}}
+                <tbody class="table-light text-center">
+                    <tr>
+
+                        <td>{{this.creator}}</td>
+                        <td>{{this.receiver}}</td>
+                        <td>{{this.cardInfo}}</td>
+                        <td>{{this.created}}</td>
+                        <td>{{this.note}}</td>
+                        <td>{{this.status}}</td>
+
+                    </tr>
+                </tbody>
+                {{/each}}
+            </table>
+        </div>
+    </div>
+</div>
