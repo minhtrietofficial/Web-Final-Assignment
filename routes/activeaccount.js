@@ -18,7 +18,9 @@ router.get('/', function (req, res, next) {
         if (rows != null) {
           let users = rows.map(row => {
             return {
+              fullname: row.firstName + ' ' + row.lastName,
               username: row.username,
+              datecreate: row.created,
               statusAccount: row.statusAccount,
             }
           });
