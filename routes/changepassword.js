@@ -59,9 +59,10 @@ router.post('/',
                             .catch(err => {
                                 req.session.username = undefined;
                                 return res.render('announce', {
-                                    title: 'Login | BKTPay',
+                                    title: 'Thông báo | BKTPay',
                                     layout: 'sublayout',
                                     content: err,
+                                    Nameresult: 'Đổi mật khẩu không thành công',
                                 });
                             })
                     });
@@ -73,6 +74,7 @@ router.post('/',
                     errors: [
                         'Username is invalid'
                     ],
+                    Nameresult: 'Đổi mật khẩu thất bại',
                 }
                 res.status(401);
                 return res.render('changepassword', context);

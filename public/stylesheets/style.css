@@ -1,3 +1,376 @@
+/* 336------------------------------------------------------- */
+.sublayout {
+
+    background-image: url('/resources/images/subbackground.png');
+}
+
+a {
+    text-decoration: none;
+}
+
+/*-----------------------------------------------------------------*/
+.sublayout .index .welcomecard {
+    background-color: #ffffff;
+    border-radius: 19px;
+    box-shadow: 0px 10px 20px -10px rgba(0, 0, 0, 0.75);
+    padding-top: 20px;
+    position: relative;
+    width: 500px;
+    max-width: 100%;
+    text-align: center;
+    margin-top: 230px;
+}
+
+.sublayout .index .welcomecard .appname {
+    font-size: 40px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: #E0C878;
+}
+
+/****Button Login - Sign up***********************************/
+.sublayout * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.sublayout .btnindex-group {
+    position: relative;
+    width: 100%;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+
+.sublayout .btnindex:hover {
+    background-position: 100% 0;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.sublayout .btnindex-group .btn-signup {
+    margin-left: 8px;
+    color: #fff;
+    width: 100px;
+    font-size: 18px;
+    font-weight: 550;
+    cursor: pointer;
+    height: 60px;
+    border: none;
+    background-size: 300% 100%;
+    border-radius: 50px;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+    background-image: linear-gradient(to right, #25aae1, #40e495, #30dd8a, #2bb673);
+    box-shadow: 0 4px 15px 0 rgba(49, 196, 190, 0.75);
+
+}
+
+.sublayout .btnindex-group .btn-login {
+    margin-left: 15px;
+    color: #fff;
+    width: 100px;
+    font-size: 18px;
+    font-weight: 550;
+    cursor: pointer;
+    height: 60px;
+    border: none;
+    background-size: 300% 100%;
+    border-radius: 50px;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+    background-image: linear-gradient(to right, #667eea, #764ba2, #6B8DD6, #8E37D7);
+    box-shadow: 0 4px 15px 0 rgba(116, 79, 168, 0.75);
+}
+
+.sublayout .btnindex:focus {
+    outline: none;
+}
+
+.sublayout .index .reserved {
+    color: black;
+    font-size: 16px;
+    font-size: small;
+}
+
+/*-----------------------------------------------------------------*/
+/*Login page*/
+.sublayout .login .loginbutton {
+    margin-left: 15px;
+    color: #fff;
+    width: 150px;
+    font-size: 18px;
+    font-weight: 550;
+    cursor: pointer;
+    height: 60px;
+    border: none;
+    background-size: 300% 100%;
+    border-radius: 50px;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+    background-image: linear-gradient(to right, #060256, #340b35, #6768ab, #8E37D7);
+    box-shadow: 0 4px 15px 0 rgba(116, 79, 168, 0.75);
+}
+
+.sublayout .loginbutton:hover {
+    background-position: 100% 0;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.sublayout .loginbutton:before {
+    content: '';
+    background: linear-gradient(45deg, #210535, #6768ab, #7b337d, #c874b2, #f5d5e0, #0b0b2f, #7a00ff, #004290, #c46fb2);
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+.sublayout .loginbutton:active {
+    color: #000
+}
+
+.sublayout .loginbutton:active:after {
+    background: transparent;
+}
+
+.sublayout .loginbutton:hover:before {
+    opacity: 1;
+}
+
+.sublayout .loginbutton:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% {
+        background-position: 0 0;
+    }
+
+    50% {
+        background-position: 400% 0;
+    }
+
+    100% {
+        background-position: 0 0;
+    }
+}
+
+/*-----------------------------------------------------------------*/
+/*Register page*/
+
+
+.sublayout .register .buttonregister {
+    margin-left: 15px;
+    color: #fff;
+    width: 300px;
+    font-size: 18px;
+    font-weight: 550;
+    cursor: pointer;
+    height: 60px;
+    border: none;
+    background-size: 300% 100%;
+    border-radius: 50px;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+    background-image: linear-gradient(to right, #060256, #340b35, #6768ab, #8E37D7);
+    box-shadow: 0 4px 15px 0 rgba(116, 79, 168, 0.75);
+}
+
+.sublayout .register .buttonregister:hover {
+    background-position: 100% 0;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.sublayout .register .buttonregister:before {
+    content: '';
+    background: linear-gradient(45deg, #210535, #6768ab, #7b337d, #c874b2, #f5d5e0, #0b0b2f, #7a00ff, #004290, #c46fb2);
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+.sublayout .register .buttonregister:active {
+    color: #000
+}
+
+.sublayout .register .buttonregister:active:after {
+    background: transparent;
+}
+
+.sublayout .register .buttonregister:hover:before {
+    opacity: 1;
+}
+
+.sublayout .register .buttonregister:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% {
+        background-position: 0 0;
+    }
+
+    50% {
+        background-position: 400% 0;
+    }
+
+    100% {
+        background-position: 0 0;
+    }
+}
+
+.sublayout .register .cccd-pic {
+    width: 150px;
+}
+
+/*-----------------------------------------------------------------*/
+/*Resetpassword page*/
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+.sublayout .uploadimg .wrapper {
+    position: relative;
+    height: 300px;
+    width: 100%;
+    border-radius: 10px;
+    background: #fff;
+    border: 2px dashed #c2cdda;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.sublayout .wrapper.active {
+    border: none;
+}
+
+.sublayout .wrapper .image {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sublayout .wrapper img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.sublayout .wrapper .icon {
+    font-size: 100px;
+    color: #9658fe;
+}
+
+.sublayout .wrapper .text {
+    font-size: 20px;
+    font-weight: 500;
+    color: #5B5B7B;
+}
+
+.sublayout .wrapper #cancel-btn i {
+    position: absolute;
+    font-size: 20px;
+    right: 15px;
+    top: 15px;
+    color: #9658fe;
+    cursor: pointer;
+    display: none;
+}
+
+.sublayout .wrapper.active:hover #cancel-btn i {
+    display: block;
+}
+
+.sublayout .wrapper #cancel-btn i:hover {
+    color: #e74c3c;
+}
+
+.sublayout .wrapper .file-name {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    padding: 8px 0;
+    font-size: 18px;
+    color: #fff;
+    display: none;
+    background: linear-gradient(135deg, #3a8ffe 0%, #9658fe 100%);
+}
+
+.sublayout .wrapper.active:hover .file-name {
+    display: block;
+}
+
+.sublayout .uploadimg .custom-btn {
+    margin-top: 30px;
+    width: 100%;
+    height: 50px;
+    border: none;
+    outline: none;
+    border-radius: 25px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    background: linear-gradient(135deg, #3a8ffe 0%, #9658fe 100%);
+}
+
+/*-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
 body {
     background-image: url('/resources/images/5.png');
 }
@@ -37,12 +410,9 @@ body {
 .thin::-webkit-scrollbar {
     width: 6px;
 }
-.home{
-    z-index: 1;
-    flex-direction: row;
-}
+
 /*Homepage*********************************/
-.home .sidenav {
+.sidenav {
     height: 100%;
     width: 320px;
     position: fixed;
@@ -50,15 +420,14 @@ body {
     top: 0;
     background-color: #041b20c0;
     overflow-y: scroll;
-    display: flex;
+    display: flex;    
     flex-wrap: wrap;
-    flex-direction: row;
     justify-content: center;
 
     /* Disable horizontal scroll */
 }
 
-.home .sidenav .logobrandcard {
+.sidenav .logobrandcard {
     background-color: none;
     border-radius: 20px;
     position: relative;
@@ -73,13 +442,13 @@ body {
 
 }
 
-.home .sidenav .brandname {
+.sidenav .brandname {
     font-size: 28px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: #E0C878;
 }
 
-.home .profilecard {
+.profilecard {
     background-color: #2C4044;
     border-radius: 20px;
     box-shadow: 0px 10px 10px -10px rgba(0, 0, 0, 0.75);
@@ -88,6 +457,7 @@ body {
     padding-bottom: 10px;
     position: relative;
     width: 280px;
+    height: fit-content;
     max-width: 100%;
     text-align: center;
     margin-top: 5px;
@@ -99,7 +469,7 @@ body {
 }
 
 
-.home .ten {
+.ten {
     font-weight: 400;
     font-size: 16px;
     font-family: Arial, Helvetica, sans-serif;
@@ -107,13 +477,24 @@ body {
     color: #fff;
 }
 
-.home .numberphone {
+.numberphone {
     font-weight: 350;
     font-size: 16px;
     font-family: Arial, Helvetica, sans-serif;
 }
-
-.home .account {
+.updateinfo [statusaccount="ĐÃ XÁC MINH"]{
+    display: none;
+}
+.updateinfo [statusaccount="CHỜ XÁC MINH"]{
+    color: rgb(183, 200, 25);
+}
+.updateinfo a{
+    text-decoration: none;
+    color: rgb(183, 200, 25);
+    background-color: none;
+    background: none;
+}
+.account {
     background-color: #2C4044;
     border-radius: 20px;
     box-shadow: 0px 10px 10px -10px rgba(0, 0, 0, 0.75);
@@ -121,6 +502,8 @@ body {
     padding-bottom: 10px;
     position: relative;
     width: 280px;
+    height: fit-content;
+
     max-width: 100%;
     text-align: center;
     margin-top: 5px;
@@ -129,12 +512,15 @@ body {
     flex-wrap: wrap;
     flex-direction: column;
 
+
 }
-.home .account[typeaccount="admin"] {
+
+.account[typeaccount="admin"] {
     display: none;
 
 }
-.home .account .sodu {
+
+.account .sodu {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 15px;
     color: #fff;
@@ -142,13 +528,13 @@ body {
     margin-left: 20px;
 }
 
-.home .account .money {
+.account .money {
     font-weight: 500;
     font-size: medium;
     color: #72BF00;
 }
 
-.home .transaction {
+.transaction {
     background-color: #2C4044;
     border-radius: 20px;
     padding-top: 10px;
@@ -165,10 +551,15 @@ body {
     justify-content: center;
 
 }
-.home .transaction[typeaccount="admin"] {
+
+.transaction[typeaccount="admin"] {
     display: none;
 }
-.home .nametransaction {
+.transaction[statusaccount="CHỜ XÁC MINH"] {
+    display: none;
+}
+
+.nametransaction {
     font-size: 14px;
     font-weight: 400;
     color: #fff;
@@ -178,7 +569,7 @@ body {
 
 }
 
-.home .panel {
+.panel {
     background-color: #2C4044;
     border-radius: 20px;
     padding-top: 10px;
@@ -194,11 +585,14 @@ body {
     flex-wrap: wrap;
     justify-content: left;
 }
-.home .panel[typeaccount="admin"] {
+
+.panel[typeaccount="admin"] {
     display: none;
 }
-
-.home .panel .panel-group-transaction {
+.panel[statusaccount="CHỜ XÁC MINH"] {
+    display: none;
+}
+.panel .panel-group-transaction {
     width: 100%;
     background-color: none;
     height: fit-content;
@@ -226,23 +620,25 @@ body {
 }
 
 /***************************************************/
-.headerofpage{
+.headerofpage {
     height: 50px;
-    margin-left:320px; 
+    margin-left: 320px;
     background-color: #041b20c0;
 }
 
-.headerofpage .logoutbutton{
+.headerofpage .logoutbutton {
     margin-left: 15px;
 }
-.statusaccount[typeaccount="admin"]{
-    display: none;
-}
-.statusaccount[statusaccount="ĐÃ XÁC MINH"]{
+
+.statusaccount[typeaccount="admin"] {
     display: none;
 }
 
-.statusaccount[statusaccount="CHỜ XÁC MINH"]{
+.statusaccount[statusaccount="ĐÃ XÁC MINH"] {
+    display: none;
+}
+
+.statusaccount[statusaccount="CHỜ XÁC MINH"] {
     top: 0;
     flex: 1;
     background-color: red;
@@ -250,10 +646,11 @@ body {
     text-align: center;
     color: #fff;
     font-weight: 500;
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
 /*******************************************************/
-.home .manage {
+.manage {
     background-color: #2C4044;
     border-radius: 20px;
     padding-top: 10px;
@@ -269,11 +666,12 @@ body {
     flex-wrap: wrap;
     justify-content: left;
 }
-.home .manage[typeaccount="user"] {
+
+.manage[typeaccount="user"] {
     display: none;
 }
 
-.home .manage .manage-group-transaction {
+.manage .manage-group-transaction {
     width: 100%;
     background-color: none;
     height: fit-content;
@@ -300,11 +698,194 @@ body {
 
 }
 
-.home .content{
+.content {
     border-radius: 20px;
     margin-top: 10px;
-    margin-left: 330px; 
+    margin-left: 330px;
     margin-right: 10px;
+    height: auto;
+}
+
+/* _________________________________________________ */
+.titlecardinfo{
+    color: white;
+    border-radius: 50px;
     background-color: #041b20c0;
-    height:auto;
+    width: 750px;
+    height: fit-content;
+    padding: 20px;
+    text-align: center;
+    font-size: 30px;
+    font-family:Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+}
+
+.cardinfo{
+    margin-top: 15px;
+    color: white;
+    border-radius: 50px;
+    background-color: #041b20c0;
+    width: 750px;
+    height: fit-content;
+    padding: 25px;
+
+
+}
+.titleinfo{
+    text-align: right;
+    font-size: 16px;
+    font-family:Arial, Helvetica, sans-serif;
+}
+.infouser{
+    margin-left: 30px;
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.cccd[cccd="0"]{
+    display: none;
+    color: rgb(224, 14, 14);
+
+}
+.cccd[cccd="1"]{
+    text-align: center;
+    color: rgb(224, 14, 14);
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+.updateinfo .buttonregister {
+    margin-left: 15px;
+    color: #fff;
+    width: 300px;
+    font-size: 18px;
+    font-weight: 550;
+    cursor: pointer;
+    height: 60px;
+    border: none;
+    background-size: 300% 100%;
+    border-radius: 50px;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+    background-image: linear-gradient(to right, #060256, #340b35, #6768ab, #8E37D7);
+    box-shadow: 0 4px 15px 0 rgba(116, 79, 168, 0.75);
+}
+
+.updateinfo .buttonregister:hover {
+    background-position: 100% 0;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.updateinfo .buttonregister:before {
+    content: '';
+    background: linear-gradient(45deg, #210535, #6768ab, #7b337d, #c874b2, #f5d5e0, #0b0b2f, #7a00ff, #004290, #c46fb2);
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+.updateinfo .uploadimg .wrapper {
+    position: relative;
+    height: 300px;
+    width: 100%;
+    border-radius: 10px;
+    background: #fff;
+    border: 2px dashed #c2cdda;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.updateinfo .wrapper.active {
+    border: none;
+}
+
+.updateinfo .wrapper .image {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.updateinfo .wrapper img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.updateinfo .wrapper .icon {
+    font-size: 100px;
+    color: #9658fe;
+}
+
+.updateinfo .wrapper .text {
+    font-size: 20px;
+    font-weight: 500;
+    color: #5B5B7B;
+}
+
+.updateinfo .wrapper #cancel-btn i {
+    position: absolute;
+    font-size: 20px;
+    right: 15px;
+    top: 15px;
+    color: #9658fe;
+    cursor: pointer;
+    display: none;
+}
+
+.updateinfo .wrapper.active:hover #cancel-btn i {
+    display: block;
+}
+
+.updateinfo .wrapper #cancel-btn i:hover {
+    color: #e74c3c;
+}
+
+.updateinfo .wrapper .file-name {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    padding: 8px 0;
+    font-size: 18px;
+    color: #fff;
+    display: none;
+    background: linear-gradient(135deg, #3a8ffe 0%, #9658fe 100%);
+}
+
+.updateinfo .wrapper.active:hover .file-name {
+    display: block;
+}
+
+.updateinfo .uploadimg .custom-btn {
+    margin-top: 30px;
+    width: 100%;
+    height: 50px;
+    border: none;
+    outline: none;
+    border-radius: 25px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    background: linear-gradient(135deg, #3a8ffe 0%, #9658fe 100%);
 }

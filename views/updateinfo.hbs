@@ -1,0 +1,158 @@
+<div class="content updateinfo">
+
+    <div class="titlecardinfo">
+        Thông tin tài khoản
+    </div>
+    <div class="cardinfo">
+        <div class="row mb-3">
+            <div class=" col-md-4">
+                <div class="titleinfo">
+                    Họ và tên
+                </div>
+            </div>
+            <div class=" col-md-8">
+                <div class="infouser">
+                    {{fullname}}
+                </div>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class=" col-md-4">
+                <div class="titleinfo">
+                    Giới tính
+                </div>
+            </div>
+            <div class=" col-md-8">
+                <div class="infouser">
+                    {{gender}}
+                </div>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class=" col-md-4">
+                <div class="titleinfo">
+                    Số điện thoại
+                </div>
+            </div>
+            <div class=" col-md-8">
+                <div class="infouser">
+                    {{numberphone}}
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class=" col-md-4">
+                <div class="titleinfo">
+                    Email
+                </div>
+            </div>
+            <div class=" col-md-8">
+                <div class="infouser">
+                    {{email}}
+                </div>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class=" col-md-4">
+                <div class="titleinfo">
+                    Số dư
+                </div>
+            </div>
+            <div class=" col-md-8">
+                <div class="infouser">
+                    {{money}} VNĐ
+                </div>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class=" col-md-4">
+                <div class="titleinfo">
+                    Trạng thái tài khoản
+                </div>
+            </div>
+            <div class=" col-md-8">
+                <div class="infouser">
+                    {{status}}
+                </div>
+            </div>
+        </div>
+        <div class="row mb-3 cccd" cccd="{{cccd}}">
+            <div class="col-md-12">
+                Tài khoản cần được bổ sung lại ảnh Căn cước công dân
+            </div>
+        </div>
+        <form action="/updateinfo" method="post" class="font-weight-bold needs-validation" enctype="multipart/form-data"
+            novalidate>
+            <div class="row mb-3">
+                {{!-- _______________________________________________________ --}}
+                <div class="col-md-6">
+                    <div class="uploadimg">
+                        <div class="wrapper">
+                            <div class="image">
+                                <img src="resources/images/frontcamera.png" alt="">
+                            </div>
+                            <div class="contenthere">
+                                <div class="icon">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                </div>
+                                <div class="text">
+                                    Mặt trước
+                                </div>
+                            </div>
+                            <div id="cancel-btn">
+                                <i class="fas fa-times"></i>
+                            </div>
+                            <div class="file-name">
+                                File name here
+                            </div>
+                        </div>
+                        <button type="button" onclick="defaultBtnActive()" class="custom-btn" id="custom-btn">Tải
+                            lên</button>
+                        <input id="default-btn" type="file" name="frontnationalid" value="" hidden
+                            accept="image/png, image/gif, image/jpeg" />
+                    </div>
+                </div>
+                {{!-- _______________________________________________________ --}}
+
+                <div class="col-md-6">
+                    <div class="uploadimg">
+                        <div class="wrapper" id="wrapper1">
+                            <div class="image" id="image1">
+                                <img id="imgresult1" src="resources/images/backcamera.png" alt="">
+                            </div>
+                            <div class="contenthere">
+                                <div class="icon">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                </div>
+                                <div class="text">
+                                    Mặt sau
+                                </div>
+                            </div>
+                            <div id="cancel-btn1">
+                                <i class="fas fa-times"></i>
+                            </div>
+                            <div class="file-name" id="file-name1">
+                                File name here
+                            </div>
+                        </div>
+                        <button type="button" onclick="defaultBtnActive1()" class="custom-btn" id="custom-btn1">Tải
+                            lên</button>
+                        <input id="default-btn1" type="file" name="backnationalid" value="" hidden
+                            accept="image/png, image/gif, image/jpeg" />
+                    </div>
+                </div>
+            </div>
+            <div class="mt-4 mb-0">
+                <div class="d-grid align-items-center justify-content-center">
+                    <button type="submit" class="buttonregister">Thêm hình ảnh</button>
+                </div>
+            </div>
+        </form>
+
+
+
+
+
+    </div>
+</div>

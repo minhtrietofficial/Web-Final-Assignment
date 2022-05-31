@@ -12,12 +12,12 @@ var usersRouter = require('./routes/users');
 var homeRouter = require('./routes/home');
 var registerRouter = require('./routes/register');
 var logoutRouter = require('./routes/logout');
-
 var loginRouter = require('./routes/login');
 var resetpasswordRouter = require('./routes/resetpassword');
 var changepasswordRouter = require('./routes/changepassword');
 var activeaccountRouter = require('./routes/activeaccount');
 var detailuserRouter = require('./routes/detailuser');
+var updateinfoRouter = require('./routes/updateinfo');
 
 var app = express();
 
@@ -45,8 +45,7 @@ app.use('/activeaccount', activeaccountRouter);
 app.use('/resetpassword', resetpasswordRouter);
 app.use('/changepassword', changepasswordRouter);
 app.use('/detailuser', detailuserRouter);
-
-
+app.use('/updateinfo', updateinfoRouter);
 
 //test---------------------------------------------------
 var home1Router = require('./routes/home1');

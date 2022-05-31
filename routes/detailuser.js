@@ -33,7 +33,7 @@ router.get('/:username', function (req, res, next) {
                             datecreate2: row2.created,
                             statusAccount2: row2.statusAccount
                         },
-                        title: 'Home | BKTPay',
+                        title: 'Detail | BKTPay',
                         layout: 'layout'
                     }
                     console.log(context.user);

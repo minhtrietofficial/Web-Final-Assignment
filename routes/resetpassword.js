@@ -47,6 +47,7 @@ router.post('/', (req, res) => {
                                 {
                                     $set: {
                                         password: hash,
+                                        isFirstLogin: true,
                                     }
                                 }
                             )
@@ -67,14 +68,16 @@ router.post('/', (req, res) => {
                                             return res.render('announce', {
                                                 title: 'Reset Password | BKTPay',
                                                 layout: 'sublayout',
-                                                content: 'You has been sent reset password request not successfully<br>Please try again! Chúng tôi sẽ tự động đưa bạn về trang chủ, đợi chút...',
+                                                Nameresult: 'Đặt lại mật khẩu thất bại',
+                                                content: 'Vui lòng thử lại <br> Chúng tôi sẽ tự động đưa bạn về trang chủ, đợi chút...',
                                             });
                                         } else {
                                             console.log(info.response);
                                             return res.render('announce', {
                                                 title: 'Reset Password | BKTPay',
                                                 layout: 'sublayout',
-                                                content: 'You has been sent reset password request successfully<br>Please check your email to get your new password! Chúng tôi sẽ tự động đưa bạn về trang chủ, đợi chút...',
+                                                Nameresult: 'Đặt lại mật khẩu thành công',
+                                                content: 'Vui lòng kiểm tra email để nhận mật khẩu mới <br> Chúng tôi sẽ tự động đưa bạn về trang chủ, đợi chút...',
                                             });
                                         }
                                     });

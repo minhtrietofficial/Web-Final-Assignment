@@ -62,6 +62,11 @@ var userSchema = mongoose.Schema({
         type: Number,
         default: 0,
     },
+    cccd: {
+        type: Number,
+        default: 0, 
+        // 1 là admin bấm yêu cầu bổ sung cccd
+    },
 });
 
 module.exports = mongoose.model('User', userSchema);
