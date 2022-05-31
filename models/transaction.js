@@ -2,11 +2,17 @@ var mongoose = require('mongoose');
 
 var transactionSchema = mongoose.Schema({
     creator: String, // username 1: active
-    receiver: String, // username 2: passive
+    receiver: { // username 2: passive
+        type: String,
+        default: '',
+    }, 
     cardInfo: Object,
     type: String,
     coin: Number,
-    note: String, // note of creator
+    note: { // note of creator
+        type: String,
+        default: '',
+    } ,
     created: {
         type: Date,
         default: Date.now(),
