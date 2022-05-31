@@ -90,4 +90,59 @@ router.post('/',
         });
     });
 
+router.post('/user', (req, res) => {
+    let old_password = req.body.old_password;
+    let new_password = req.body.new_password;
+    let confirm_new_password = req.body.confirm_new_password;
+    if (new_password == confirm_new_password) {
+        User.findOne({ username: req.session.username }, (err, row) => {
+            if (err) console.log(err);
+            if (row != null) {
+                bcrypt.compare(old_password, row.password, (err, result) => {
+                    if (err) console.log(err);
+                    if (result) {
+                        bcrypt.genSalt(10, (err, salt) => {
+                            if (err) console.log(err);
+                            bcrypt.hash(new_password, salt, (err, hash) => {
+                                if (err) console.log(err);
+                                User.updateOne(
+                                    { username: { $eq: req.session.username } },
+                                    {
+                                        $set: {
+                                            password: hash,
+                                        }
+                                    }
+                                )
+                                    .then(() => res.redirect(303, '/home'))
+                                    .catch(err => {
+                                        console.log(err);
+                                        return res.render('announce', {
+                                            title: 'Change Password | BKTPay',
+                                            layout: 'sublayout',
+                                            content: 'You has been change your password not successfully<br>Please try again! Chúng tôi sẽ tự động đưa bạn về trang chủ, đợi chút...',
+                                        });
+                                    })
+                            });
+                        });
+                    } else {
+                        return res.render('announce', {
+                            title: 'Change Password | BKTPay',
+                            layout: 'sublayout',
+                            content: 'Server can not serve now. Please try again!',
+                        });
+                    }
+                })
+            } else {
+                return res.render('announce', {
+                    title: 'Change Password | BKTPay',
+                    layout: 'sublayout',
+                    content: 'Server can not serve now. Please try again!',
+                });
+            }
+        });
+    } else {
+        res.redirect(303, 'changepassword/user');
+    }
+});
+
 module.exports = router;
