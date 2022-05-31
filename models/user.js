@@ -62,10 +62,20 @@ var userSchema = mongoose.Schema({
         type: Number,
         default: 0,
     },
+<<<<<<< HEAD
     cccd: {
         type: Number,
         default: 0, 
         // 1 là admin bấm yêu cầu bổ sung cccd
+=======
+    OTP: {
+        type: String,
+        default: '',
+    },
+    expiredOTP: {
+        type: Number,
+        default: 0,
+>>>>>>> register_v2
     },
 });
 
