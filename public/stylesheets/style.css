@@ -482,13 +482,26 @@ body {
     font-size: 16px;
     font-family: Arial, Helvetica, sans-serif;
 }
-.updateinfo [statusaccount="ĐÃ XÁC MINH"]{
+.updateinfotext[statusaccount="ĐÃ XÁC MINH"]{
     display: none;
 }
-.updateinfo [statusaccount="CHỜ XÁC MINH"]{
+.updateinfotext[statusaccount="CHỜ XÁC MINH"]{
     color: rgb(183, 200, 25);
 }
-.updateinfo a{
+.updateinfotext a{
+    text-decoration: none;
+    color: rgb(183, 200, 25);
+    background-color: none;
+    background: none;
+}
+.seeinfo[statusaccount="ĐÃ XÁC MINH"]{
+    color: rgb(183, 200, 25);
+
+}
+.seeinfo[statusaccount="CHỜ XÁC MINH"]{
+    display: none;
+}
+.seeinfo a{
     text-decoration: none;
     color: rgb(183, 200, 25);
     background-color: none;
@@ -701,9 +714,10 @@ body {
 .content {
     border-radius: 20px;
     margin-top: 10px;
-    margin-left: 330px;
+    padding-left: 330px;
     margin-right: 10px;
     height: auto;
+    flex: 1;
 }
 
 /* _________________________________________________ */
@@ -744,7 +758,6 @@ body {
 
 .cccd[cccd="0"]{
     display: none;
-    color: rgb(224, 14, 14);
 
 }
 .cccd[cccd="1"]{
@@ -752,6 +765,17 @@ body {
     color: rgb(224, 14, 14);
     font-size: 18px;
     font-family: Arial, Helvetica, sans-serif;
+
+}
+.updatecccd[cccd="0"]{
+    display: none;
+
+
+}
+.updateinfo{
+    height: fit-content;
+    width: fit-content;
+    flex: 1;
 
 }
 .updateinfo .buttonregister {
@@ -888,4 +912,75 @@ body {
     text-transform: uppercase;
     cursor: pointer;
     background: linear-gradient(135deg, #3a8ffe 0%, #9658fe 100%);
+}
+/* -------------------------------------------------------------------------------------------------------------------------------------------------- */
+.titlecardinfo{
+    color: white;
+    border-radius: 50px;
+    background-color: #041b20c0;
+    width: 750px;
+    height: fit-content;
+    padding: 20px;
+    text-align: center;
+    font-family:Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+}
+.cardinfo{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.moneyrecharge .creditcardtitle{
+    font-size: 25px;
+    text-align: left;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
+.moneyrecharge .buttonnaptien {
+    margin-left: 15px;
+    color: #fff;
+    width: 300px;
+    font-size: 18px;
+    font-weight: 550;
+    cursor: pointer;
+    height: 60px;
+    border: none;
+    background-size: 300% 100%;
+    border-radius: 50px;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+    background-image: linear-gradient(to right, #060256, #340b35, #6768ab, #8E37D7);
+    box-shadow: 0 4px 15px 0 rgba(116, 79, 168, 0.75);
+}
+
+.moneyrecharge .buttonnaptien:hover {
+    background-position: 100% 0;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.moneyrecharge .buttonnaptien:before {
+    content: '';
+    background: linear-gradient(45deg, #210535, #6768ab, #7b337d, #c874b2, #f5d5e0, #0b0b2f, #7a00ff, #004290, #c46fb2);
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
 }

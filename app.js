@@ -18,6 +18,9 @@ var changepasswordRouter = require('./routes/changepassword');
 var activeaccountRouter = require('./routes/activeaccount');
 var detailuserRouter = require('./routes/detailuser');
 var updateinfoRouter = require('./routes/updateinfo');
+var moneyrechargeRouter = require('./routes/moneyrecharge');
+var moneywithdrawRouter = require('./routes/moneywithdraw');
+var moneytransfersRouter = require('./routes/moneytransfers');
 
 var app = express();
 
@@ -46,10 +49,10 @@ app.use('/resetpassword', resetpasswordRouter);
 app.use('/changepassword', changepasswordRouter);
 app.use('/detailuser', detailuserRouter);
 app.use('/updateinfo', updateinfoRouter);
+app.use('/moneyrecharge', moneyrechargeRouter);
+app.use('/moneywithdraw', moneywithdrawRouter);
+app.use('/moneytransfers', moneytransfersRouter);
 
-//test---------------------------------------------------
-var home1Router = require('./routes/home1');
-app.use('/home1', home1Router);
 
 //--------------------------------------------------------
 app.get('/login', (req, res) => {
