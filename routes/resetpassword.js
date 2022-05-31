@@ -50,13 +50,10 @@ router.post('/', (req, res) => {
                                 { email: { $eq: email } },
                                 {
                                     $set: {
-<<<<<<< HEAD
                                         password: hash,
                                         isFirstLogin: true,
-=======
                                         OTP: otp,
                                         expiredOTP: Date.now() + 60,
->>>>>>> register_v2
                                     }
                                 }
                             )
@@ -124,25 +121,9 @@ router.post('/', (req, res) => {
                                             return res.render('announce', {
                                                 title: 'Reset Password | BKTPay',
                                                 layout: 'sublayout',
-<<<<<<< HEAD
-                                                Nameresult: 'Đặt lại mật khẩu thất bại',
-                                                content: 'Vui lòng thử lại <br> Chúng tôi sẽ tự động đưa bạn về trang chủ, đợi chút...',
-                                            });
-                                        } else {
-                                            console.log(info.response);
-                                            return res.render('announce', {
-                                                title: 'Reset Password | BKTPay',
-                                                layout: 'sublayout',
-                                                Nameresult: 'Đặt lại mật khẩu thành công',
-                                                content: 'Vui lòng kiểm tra email để nhận mật khẩu mới <br> Chúng tôi sẽ tự động đưa bạn về trang chủ, đợi chút...',
-                                            });
-                                        }
-                                    });
-=======
                                                 content: 'Server can not serve now. Please try again!',
                                             });
                                         })
->>>>>>> register_v2
                                 })
                                 .catch(err => {
                                     console.log(err);
