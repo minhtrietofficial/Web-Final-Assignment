@@ -27,6 +27,7 @@ var accountunvailableRouter = require('./routes/accountunvailable');
 var approvewithdrawRouter = require('./routes/approvewithdraw');
 var approvetransferRouter = require('./routes/approvetransfer');
 var historytranRouter = require('./routes/historytran');
+var historyuserRouter = require('./routes/historyuser');
 
 var app = express();
 
@@ -64,6 +65,9 @@ app.use('/accountunvailable', accountunvailableRouter);
 app.use('/approvewithdraw', approvewithdrawRouter);
 app.use('/approvetransfer', approvetransferRouter);
 app.use('/historytran', historytranRouter);
+
+app.use('/historyuser', historyuserRouter);
+
 
 //--------------------------------------------------------
 // catch 404 and forward to error handler

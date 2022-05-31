@@ -20,7 +20,6 @@ router.get('/', function (req, res, next) {
         if (rows != null) {
           let credits = rows.map(row => {
             return {
-            
               receiver: row.receiver,
               creator: row.creator,
               cardInfo: row.cardInfo,
