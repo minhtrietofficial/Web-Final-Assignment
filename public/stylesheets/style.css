@@ -750,12 +750,20 @@ body {
     font-size: 16px;
     font-family:Arial, Helvetica, sans-serif;
 }
-.infouser{
+.infouser[status ="ĐÃ XÁC MINH"]{
     margin-left: 30px;
     font-size: 15px;
     font-family: Arial, Helvetica, sans-serif;
-}
+    color: rgb(94, 224, 14);
 
+}
+.infouser[status ="CHỜ XÁC MINH"]{
+    margin-left: 30px;
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(224, 217, 14);
+
+}
 .cccd[cccd="0"]{
     display: none;
 
