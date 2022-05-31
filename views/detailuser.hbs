@@ -138,19 +138,19 @@
                         <td>Kích hoạt</td>
                     </tr>
                 </thead>
-                {{#each users}}
+                {{#if user}}
                 <tbody class="table-light text-center">
                     <tr>
-                        <td>{{this.fullname}}</td>
-                        <td>{{this.username}}</td>
-                        <td>{{this.datecreate}}</td>
-                        <td>{{this.statusAccount}}</td>
+                        <td>{{user.fullname2}}</td>
+                        <td>{{user.username2}}</td>
+                        <td>{{user.datecreate2}}</td>
+                        <td>{{user.statusAccount2}}</td>
                         <td colspan="2"><a class="btn btn-light"  href="/">Thông tin chi tiết</a></td>
                         <td ><a class="btn btn-light" href="/">Kích hoạt tài khoản</a></td>
 
                     </tr>
                 </tbody> 
-                {{/each}}
+                {{/if}}
             </table>
         </div>
     </div>
