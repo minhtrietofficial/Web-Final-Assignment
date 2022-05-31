@@ -68,7 +68,7 @@ var userSchema = mongoose.Schema({
     },
     expiredOTP: {
         type: Number,
-        default: Date.now() + 60,
+        default: 0,
     },
 });
 
