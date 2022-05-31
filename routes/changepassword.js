@@ -19,6 +19,14 @@ router.get('/', (req, res) => {
     res.render('changepassword', context);
 });
 
+router.get('/user', (req, res) => {
+    let context = {
+        title: 'Change Password | BKTPay',
+        layout: 'sublayout'
+    }
+    res.render('changepassword_user', context);
+})
+
 router.post('/',
     body('password').not().isEmpty().isLength({ min: 6 }),
     (req, res) => {
