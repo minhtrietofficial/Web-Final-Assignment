@@ -467,7 +467,9 @@ body {
     flex-wrap: wrap;
     flex-direction: column;
 }
-
+a{
+    color: white;
+}
 
 .ten {
     font-weight: 400;
