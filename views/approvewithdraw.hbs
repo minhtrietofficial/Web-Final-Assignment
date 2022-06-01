@@ -22,7 +22,7 @@
                 {{#each trans}}
                 <tbody class="table-light text-center">
                     <tr>
-                        <td>{{this._id}}</td>
+                        <td style="display:none">{{this._id}}</td>
                         <td>{{this.creator}}</td>
                         <td>{{this.type}}</td>
                         <td>{{this.coin}}</td>
@@ -34,7 +34,7 @@
                         <td>
                             <form action="/approvewithdraw/accept/{{this._id}}?_method=PUT" method="POST">
                                 <input name="username" type="text" value="{{this.creator}}" style="display:none">
-                                <input name="coin" type="text" value="{{this.coin}}" style="display:none"D>
+                                <input name="coin" type="text" value="{{this.coin}}" style="display:none">
                                 <button type="submit" class="btn btn-success">Phê duyệt</button>
                             </form>
                         </td>

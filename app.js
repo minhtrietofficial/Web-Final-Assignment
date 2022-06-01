@@ -30,6 +30,7 @@ var approvetransferRouter = require('./routes/approvetransfer');
 var historytranRouter = require('./routes/historytran');
 var historyuserRouter = require('./routes/historyuser');
 var tranpendingRouter = require('./routes/tranpending');
+var detailtranRouter = require('./routes/detailtran');
 
 var methodOverride = require('method-override');
 var app = express();
@@ -71,6 +72,7 @@ app.use('/approvetransfer', approvetransferRouter);
 app.use('/historytran', historytranRouter);
 app.use('/tranpending', tranpendingRouter);
 app.use('/historyuser', historyuserRouter);
+app.use('/detailtran', detailtranRouter);
 
 
 //--------------------------------------------------------

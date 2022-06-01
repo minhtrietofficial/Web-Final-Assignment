@@ -12,7 +12,7 @@
                         <td>Username</td>
                         <td>Thời gian tạo</td>
                         <td>Trạng thái</td>
-                        <td >Thao tác</td>
+                        <td colspan="2">Thao tác</td>
                     </tr>
                 </thead>
                 {{#each users}}
@@ -24,6 +24,11 @@
                         <td>{{this.statusAccount}}</td>
                         <td><a class="btn btn-primary" href="/detailuser/{{this.username}}">Thông tin chi
                                 tiết</a>
+                        </td>
+                        <td>
+                            <form action="/accountunvailable/active/{{this.username}}?_method=PUT" method="POST">
+                                <button type="submit" class="btn btn-success">Kích hoạt lại tài khoản </button>
+                            </form>
                         </td>
 
                     </tr>

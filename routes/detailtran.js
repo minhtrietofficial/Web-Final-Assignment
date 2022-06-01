@@ -7,11 +7,11 @@ var trans = require('../models/transaction');
 router.use(session({ secret: credentials.session.key }));
 
 /* GET home page. */
-router.get('/:username', function (req, res, next) {
+router.get('/:id', function (req, res, next) {
   if (req.session.username === undefined) {
     return res.redirect(303, '/');
   }
-  User.findOne({username: req.params.username }, (err, row) => {
+  trans.findOne({ _id: req.params.id }, (err, row) => {
     if (err)
       console.log(err);
     if (row != null) {
@@ -27,7 +27,7 @@ router.get('/:username', function (req, res, next) {
         title: 'Thông tin tài khoản | BKTPay',
         layout: 'detaillayout'
       }
-      return res.render('detailuser', context);
+      return res.render('detailtran', context);
     }
   })
 });

@@ -50,5 +50,12 @@ router.get('/', function (req, res, next) {
   });
 });
 
-
+router.put('/active/:username', (req, res, next) => {
+  username = req.params.username
+  User.updateOne({ username : req.params.username }, { statusAccount: 'ĐÃ XÁC MINH' })
+    .then(() => {
+      res.redirect(303, '/accountunvailable');
+     })
+    .catch(next)
+});
 module.exports = router;
