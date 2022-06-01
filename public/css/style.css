@@ -1129,3 +1129,9 @@ input[type=number]::-webkit-outer-spin-button {
 
 }
 
+.detaillayout{
+    max-width: max-content;
+    max-height: max-content;
+    float: left;
+    flex: auto;
+}

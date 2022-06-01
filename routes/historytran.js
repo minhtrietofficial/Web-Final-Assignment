@@ -39,8 +39,7 @@ router.get('/:username', function (req, res, next) {
 
               }
             });
-            let context = {
-              
+            let context = {             
               fullname: row.firstName + ' ' + row.lastName,
               typeaccount: row.role,
               numberphone: row.numberphone,
@@ -48,7 +47,7 @@ router.get('/:username', function (req, res, next) {
               status: row.statusAccount,
               trans: trans,
               title: 'Lịch sử giao dịch | BKTPay',
-              layout: 'layout'
+              layout: 'detaillayout'
             }
             return res.render('historytran', context);
           } else {
