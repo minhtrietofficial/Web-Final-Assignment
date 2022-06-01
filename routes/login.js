@@ -77,7 +77,6 @@ router.post('/',
                             bcrypt.compare(password, row.password, (err, result) => {
                                 if (err) console.log(err);
                                 if (result) {
-                                    req.session.username = username;
                                     User.updateOne(
                                         {username: {$eq: username}},
                                         {
@@ -88,6 +87,8 @@ router.post('/',
                                         }
                                     )
                                     .then(() => {
+                                        req.session.username = username;
+                                        req.session.role = row.role;
                                         if (row.isFirstLogin) {
                                             return res.redirect(303, '/changepassword');
                                         } else {
