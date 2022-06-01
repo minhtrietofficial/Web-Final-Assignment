@@ -4,7 +4,7 @@
     </div>
     <div class=" cardinfo">
 
-        <form class="row gx-3 gy-2 align-items-center">
+        <form action="/moneywithdraw" method="post" class="row gx-3 gy-2 align-items-center">
             <div class="creditcardtitle">
                 Thông tin thẻ tín dụng
             </div>
@@ -12,7 +12,7 @@
                 <label class="visually-hidden" for="specificSizeInputGroupUsername">Username</label>
                 <div class="input-group">
                     <div class="input-group-text">ID</div>
-                    <input type="NUMBER" class="form-control" id="specificSizeInputGroupUsername" placeholder="ID"
+                    <input name="cardNumber" type="NUMBER" class="form-control" id="specificSizeInputGroupUsername" placeholder="ID"
                         maxlength="6">
                 </div>
             </div>
@@ -20,14 +20,14 @@
                 <label class="visually-hidden" for="specificSizeInputGroupUsername">Username</label>
                 <div class="input-group">
                     <div class="input-group-text">EXPIRED</div>
-                    <input type="DATE" class="form-control" id="specificSizeInputGroupUsername" placeholder="DATE">
+                    <input name="expired" type="DATE" class="form-control" id="specificSizeInputGroupUsername" placeholder="DATE">
                 </div>
             </div>
             <div class="col-sm-3">
                 <label class="visually-hidden" for="specificSizeInputGroupUsername">Username</label>
                 <div class="input-group">
                     <div class="input-group-text">CVV</div>
-                    <input type="NUMBER" class="form-control" id="specificSizeInputGroupUsername" placeholder="CVV"
+                    <input name="cvv" type="NUMBER" class="form-control" id="specificSizeInputGroupUsername" placeholder="CVV"
                         maxlength="3">
                 </div>
             </div>
@@ -38,12 +38,12 @@
                 <label class="visually-hidden" for="specificSizeInputGroupUsername">Số tiền</label>
                 <div class="input-group">
                     <div class="input-group-text">Số tiền</div>
-                    <input type="NUMBER" class="form-control" id="specificSizeInputGroupUsername" placeholder="Số tiền">
+                    <input name="coin" type="NUMBER" class="form-control" id="specificSizeInputGroupUsername" placeholder="Số tiền">
                 </div>
             </div>
             <div class="col-sm-12">
                 
-                <input type="text" class="form-control" id="inputAddress2" placeholder="Ghi chú">
+                <input name="note" type="text" class="form-control" id="inputAddress2" placeholder="Ghi chú">
 
             </div>
             <div class="row-auto">
