@@ -24,33 +24,17 @@ router.get('/', function (req, res, next) {
         if (err) console.log(err);
         if (rows != null) {
           let trans = rows.map(row => {
-            User.findOne({ username: ObjectId(row.id) }, (err, user) => {
-              if (err) console.log(err);
-              if (user != null) {
-                if (user.coin < row.coin) {
-                  Transaction.updateOne(
-                    { _id: { $eq: ObjectId(row.id) } },
-                    {
-                      $set: {
-                        status: 'THẤT BẠI',
-                      }
-                    }
-                  )
-                } else {
-                  return {
-                    _id: row.id,
-                    creator: row.creator,
-                    receiver: row.receiver,
-                    cardInfo: row.cardInfo,
-                    type: row.type,
-                    coin: row.coin,
-                    note: row.note,
-                    created: row.created,
-                    status: row.status,
-                  }
-                }
-              }
-            })
+            return {
+              _id: row.id,
+              creator: row.creator,
+              receiver: row.receiver,
+              cardInfo: row.cardInfo,
+              type: row.type,
+              coin: row.coin,
+              note: row.note,
+              created: row.created,
+              status: row.status,
+            }
           });
           let context = {
             fullname: row.firstName + ' ' + row.lastName,
