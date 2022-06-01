@@ -18,7 +18,7 @@ router.get('/', function (req, res, next) {
     if (err)
       console.log(err);
     if (row != null) {
-      User.find({ statusAccount: "TỪ CHỐI XÁC MINH" }, (err, rows) => {
+      User.find({ statusAccount: "ĐÃ VÔ HIỆU HÓA" }, (err, rows) => {
         if (err) console.log(err);
         if (rows != null) {
           let users = rows.map(row => {

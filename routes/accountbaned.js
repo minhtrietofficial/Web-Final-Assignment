@@ -50,7 +50,7 @@ router.get('/', function (req, res, next) {
 
 router.put('/unlock/:username', (req, res, next) => {
   username = req.params.username
-  User.updateOne({ username : req.params.username }, { statusAccount: 'ĐÃ XÁC MINH' },{unusualLogin : '0'} )
+  User.update({ username : req.params.username }, { statusAccount: 'ĐÃ XÁC MINH' },{unusualLogin : '0'} )
     .then(() => {
       res.redirect(303, '/accountbaned');
      })

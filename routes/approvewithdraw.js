@@ -16,11 +16,12 @@ router.get('/', function (req, res, next) {
     if (err)
       console.log(err);
     if (row != null) {
-      trans.find( { status: "ĐANG CHỜ" }, (err, rows) => {
+      trans.find( { status: "ĐANG CHỜ DUYỆT" }, (err, rows) => {
         if (err) console.log(err);
         if (rows != null) {
             let trans = rows.map(row => {
                 return {
+                    _id: row._id,
                     creator: row.creator,
                     receiver: row.receiver,
                     cardInfo: row.cardInfo,
@@ -37,7 +38,7 @@ router.get('/', function (req, res, next) {
             numberphone: row.numberphone,
             money: row.coin,
             status: row.statusAccount,
-            trans: Trans,
+            trans: trans,
             title: 'Phê duyệt rút tiền | BKTPay',
             layout: 'layout'
           }
@@ -50,5 +51,21 @@ router.get('/', function (req, res, next) {
       res.redirect(303, '/home');
     }
   });
+});
+
+
+router.put('/accept/:_id', (req, res, next) => {
+  User.updateOne({ _id : req.params.id }, { status: 'THÀNH CÔNG' })
+    .then(() => {
+      res.redirect(303, '/approvewithdraw');
+     })
+    .catch(next)
+});
+router.put('/cancel/:_id', (req, res, next) => {
+  User.updateOne({ _id : req.params.id }, { status: 'ĐÃ HỦY' })
+    .then(() => {
+      res.redirect(303, '/approvewithdraw');
+    })
+    .catch(next)
 });
 module.exports = router;

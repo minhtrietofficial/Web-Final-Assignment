@@ -30,9 +30,16 @@
                         <td>{{this.created}}</td>
                         <td>{{this.note}}</td>
                         <td>{{this.status}}</td>
-                        <td><a class="btn btn-success" href="/">Từ chối xác minh</a></td>
-
-                    </tr>
+                        <td>
+                            <form action="/approvewithdraw/accept/{{this._id}}?_method=PUT" method="POST">
+                                <button type="submit" class="btn btn-success">Phê duyệt</button>
+                            </form>
+                        </td>
+                        <td>
+                            <form action="/approvewithdraw/cancel/{{this._id}}?_method=PUT" method="POST">
+                                <button type="submit" class="btn btn-danger">Hủy</button>
+                            </form>
+                        </td>
                 </tbody>
                 {{/each}}
             </table>

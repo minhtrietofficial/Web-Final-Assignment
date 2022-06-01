@@ -20,7 +20,7 @@ router.get('/', function (req, res, next) {
     if (err)
       console.log(err);
     if (row != null) {
-      User.find({ statusAccount: "CHỜ XÁC MINH" }, (err, rows) => {
+      User.find({ statusAccount: "CHỜ XÁC MINH" },(err, rows) => {
         if (err) console.log(err);
         if (rows != null) {
           let users = rows.map(row => {
@@ -62,14 +62,14 @@ router.put('/active/:username', (req, res, next) => {
 });
 router.put('/deactive/:username', (req, res, next) => {
   username = req.params.username
-  User.updateOne({ username : req.params.username }, { statusAccount: 'TỪ CHỐI XÁC MINH' })
+  User.updateOne({ username : req.params.username }, { statusAccount: 'ĐÃ VÔ HIỆU HÓA' })
     .then(() => {
       res.redirect(303, '/activeaccount');
     })
     .catch(next)
 });
 router.put('/cccd/:username', (req, res, next) => {
-  User.updateOne({ username : req.params.username }, { statusAccount: 'TỪ CHỐI XÁC MINH' },{ cccd: '1' })
+  User.update({ username : req.params.username }, { statusAccount: 'CHỜ CẬP NHẬT' },{ cccd: '1' })
     .then(() => {
       res.redirect(303, '/activeaccount');
     })

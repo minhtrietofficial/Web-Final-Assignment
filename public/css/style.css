@@ -490,6 +490,9 @@ a{
 .updateinfotext[statusaccount="CHỜ XÁC MINH"]{
     color: rgb(183, 200, 25);
 }
+.updateinfotext[statusaccount="CHỜ CẬP NHẬT"]{
+    color: rgb(183, 200, 25);
+}
 .updateinfotext a{
     text-decoration: none;
     color: rgb(183, 200, 25);
@@ -504,6 +507,9 @@ a{
 
 }
 .seeinfo[statusaccount="CHỜ XÁC MINH"]{
+    display: none;
+}
+.seeinfo[statusaccount="CHỜ CẬP NHẬT"]{
     display: none;
 }
 
@@ -577,6 +583,9 @@ a{
 .transaction[statusaccount="CHỜ XÁC MINH"] {
     display: none;
 }
+.transaction[statusaccount="CHỜ CẬP NHẬT"] {
+    display: none;
+}
 
 .nametransaction {
     font-size: 14px;
@@ -609,6 +618,9 @@ a{
     display: none;
 }
 .panel[statusaccount="CHỜ XÁC MINH"] {
+    display: none;
+}
+.panel[statusaccount="CHỜ CẬP NHẬT"] {
     display: none;
 }
 .panel .panel-group-transaction {
@@ -649,15 +661,41 @@ a{
     margin-left: 15px;
 }
 
-.statusaccount[typeaccount="admin"] {
+.bandstatusaccount[typeaccount="admin"] {
     display: none;
 }
 
-.statusaccount[statusaccount="ĐÃ XÁC MINH"] {
+.bandstatusaccount[statusaccount="ĐÃ XÁC MINH"] {
     display: none;
 }
 
-.statusaccount[statusaccount="CHỜ XÁC MINH"] {
+.bandstatusaccount[statusaccount="CHỜ XÁC MINH"] {
+    top: 0;
+    flex: 1;
+    background-color: rgb(209, 223, 13);
+    margin-left: 320px;
+    text-align: center;
+    color: #fff;
+    font-weight: 500;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    top: 0;
+
+}
+.bandstatusaccount[statusaccount="CHỜ CẬP NHẬT"] {
+    display: none;
+}
+.bandstatusaccount2[typeaccount="admin"] {
+    display: none;
+}
+
+.bandstatusaccount2[statusaccount="ĐÃ XÁC MINH"] {
+    display: none;
+}
+
+.bandstatusaccount2[statusaccount="CHỜ XÁC MINH"] {
+    display: none;
+}
+.bandstatusaccount2[statusaccount="CHỜ CẬP NHẬT"] {
     top: 0;
     flex: 1;
     background-color: red;
@@ -666,8 +704,8 @@ a{
     color: #fff;
     font-weight: 500;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    top: 0;
 }
-
 /*******************************************************/
 .manage {
     background-color: #2C4044;
@@ -770,10 +808,15 @@ a{
 
 }
 .infouser[status ="CHỜ XÁC MINH"]{
-    margin-left: 30px;
     font-size: 15px;
     font-family: Arial, Helvetica, sans-serif;
     color: rgb(224, 217, 14);
+
+}
+.infouser[status ="CHỜ CẬP NHẬT"]{
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(224, 14, 14);
 
 }
 .cccd[cccd="0"]{
@@ -789,8 +832,6 @@ a{
 }
 .updatecccd[cccd="0"]{
     display: none;
-
-
 }
 .updateinfo{
     height: fit-content;
@@ -1027,7 +1068,7 @@ input[type=number]::-webkit-outer-spin-button {
 .detailuser .money{
     color: #50ba13;
 }
-.detailuser #statusaccount[detailstatusaccount="TỪ CHỐI XÁC MINH"]{
+.detailuser #statusaccount[detailstatusaccount="CHỜ CẬP NHẬT"]{
     color: #baba13;
 }
 .detailuser #statusaccount[detailstatusaccount="ĐÃ XÁC MINH"]{
