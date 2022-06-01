@@ -3,6 +3,11 @@ var router = express.Router();
 var session = require('express-session');
 var credentials = require('../credentials');
 var User = require('../models/user');
+var methodOverride = require('method-override');
+
+router.use(methodOverride('_method'));
+
+
 router.use(session({ secret: credentials.session.key }));
 
 router.get('/', function (req, res, next) {
@@ -25,6 +30,7 @@ router.get('/', function (req, res, next) {
             }
           });
           let context = {
+            
             fullname: row.firstName + ' ' + row.lastName,
             typeaccount: row.role,
             numberphone: row.numberphone,

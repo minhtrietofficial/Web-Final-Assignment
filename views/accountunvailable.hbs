@@ -12,7 +12,7 @@
                         <td>Username</td>
                         <td>Thời gian tạo</td>
                         <td>Trạng thái</td>
-                        <td colspan="2">Thao tác</td>
+                        <td >Thao tác</td>
                     </tr>
                 </thead>
                 {{#each users}}
@@ -22,10 +22,9 @@
                         <td>{{this.username}}</td>
                         <td>{{this.datecreate}}</td>
                         <td>{{this.statusAccount}}</td>
-                        <td><a class="btn btn-light" href="/detailuser/{{this.username}}">Thông tin chi
+                        <td><a class="btn btn-primary" href="/detailuser/{{this.username}}">Thông tin chi
                                 tiết</a>
                         </td>
-                        <td><a type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">Mở khóa</a></td>
 
                     </tr>
                 </tbody>
@@ -33,30 +32,4 @@
             </table>
         </div>
     </div>
-</div>
-<div class="modal" id="myModal">
-  <div class="modal-dialog">
-    <div class="modal-content">
-
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <h4 class="modal-title">Xác nhận</h4>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
-
-      <!-- Modal body -->
-      <div class="modal-body">
-        Mở khóa người dùng này
-      </div>
-
-      <!-- Modal footer -->
-      <div class="modal-footer">
-        
-
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Hủy</button>
-        <button type="submit" class="btn btn-success">Đồng ý</button>
-      </div>
-
-    </div>
-  </div>
 </div>

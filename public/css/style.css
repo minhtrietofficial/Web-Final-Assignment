@@ -961,7 +961,7 @@ input[type=number]::-webkit-outer-spin-button {
     appearance: none;
     margin: 0; 
 }
-.moneyrecharge .buttonnaptien {
+.buttonnaptien {
     margin-left: 15px;
     color: #fff;
     width: 300px;
@@ -970,7 +970,6 @@ input[type=number]::-webkit-outer-spin-button {
     cursor: pointer;
     height: 60px;
     border: none;
-    background-size: 300% 100%;
     border-radius: 50px;
     moz-transition: all .4s ease-in-out;
     -o-transition: all .4s ease-in-out;
@@ -980,7 +979,7 @@ input[type=number]::-webkit-outer-spin-button {
     box-shadow: 0 4px 15px 0 rgba(116, 79, 168, 0.75);
 }
 
-.moneyrecharge .buttonnaptien:hover {
+.buttonnaptien:hover {
     background-position: 100% 0;
     moz-transition: all .4s ease-in-out;
     -o-transition: all .4s ease-in-out;
@@ -988,17 +987,15 @@ input[type=number]::-webkit-outer-spin-button {
     transition: all .4s ease-in-out;
 }
 
-.moneyrecharge .buttonnaptien:before {
+ .buttonnaptien:before {
     content: '';
     background: linear-gradient(45deg, #210535, #6768ab, #7b337d, #c874b2, #f5d5e0, #0b0b2f, #7a00ff, #004290, #c46fb2);
     position: absolute;
     top: -2px;
     left: -2px;
-    background-size: 400%;
     z-index: -1;
     filter: blur(5px);
-    width: calc(100% + 4px);
-    height: calc(100% + 4px);
+
     animation: glowing 20s linear infinite;
     opacity: 0;
     transition: opacity .3s ease-in-out;
@@ -1027,33 +1024,67 @@ input[type=number]::-webkit-outer-spin-button {
     font-family:Arial, Helvetica, sans-serif;
 
 }
-.detaiLuser .money{
+.detailuser .money{
     color: #50ba13;
 }
-.detaiLuser .statusaccount[detailstatusaccount="TỪ CHỐI XÁC MINH"]{
+.detailuser #statusaccount[detailstatusaccount="TỪ CHỐI XÁC MINH"]{
     color: #baba13;
 }
-.detaiLuser .statusaccount[detailstatusaccount="ĐÃ XÁC MINH"]{
+.detailuser #statusaccount[detailstatusaccount="ĐÃ XÁC MINH"]{
     color: #50ba13;
 }
-.detaiLuser .statusaccount[detailstatusaccount="CHỜ XÁC MINH"]{
-    color: #ba8213;
-}
-.detaiLuser .statusaccount[detailstatusaccount="CHỜ XÁC MINH"]{
+.detailuser #statusaccount[detailstatusaccount="CHỜ XÁC MINH"]{
     color: #ba8213;
 }
 
-.detaiLuser .note[cccd="0"]{
+
+.detailuser .note[cccd="0"]{
     display: none;
 
 }
-.detaiLuser .note[cccd="1"]{
+.detailuser .note[cccd="1"]{
     text-align: center;
     color: rgb(224, 14, 14);
     font-size: 18px;
     font-family: Arial, Helvetica, sans-serif;
 
 }
-.detaiLuser .name{
+.detailuser .name{
     text-transform: capitalize;
 }
+.mobilecharge .cardinfo{
+        margin-top: 15px;
+        color: white;
+        border-radius: 50px;
+        background-color: #041b20c0;
+        width: 750px;
+        height: fit-content;
+        padding: 25px;
+
+}
+.mobilecharge .creditcardtitle{
+    font-size: 25px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+.mobilecharge .namecard{
+    font-size: 25px;
+    text-align: center;
+    margin-bottom: 15px;
+    color: teal;
+}
+
+/* --------------------------------------- */
+.thehome{
+    height: max-content;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+
+}
+.thehome img {
+
+    width: 1400px;
+
+}
+

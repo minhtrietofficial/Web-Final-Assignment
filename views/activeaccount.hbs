@@ -22,11 +22,25 @@
                         <td>{{this.username}}</td>
                         <td>{{this.datecreate}}</td>
                         <td>{{this.statusAccount}}</td>
-                        <td ><a class="btn btn-light" href="/detailuser/{{this.username}}">Thông tin chi tiết</a>
+                        <td><a class="btn btn-primary" href="/detailuser/{{this.username}}">Thông tin chi tiết</a></td>
+                        {{!-- ------------------------------------ --}}
+                        <td>
+                            <form action="/activeaccount/active/{{this.username}}?_method=PUT" method="POST">
+                                <button type="submit" class="btn btn-success">Kích hoạt tài khoản </button>
+                            </form>
                         </td>
-                        <td><a class="btn btn-success" href="/">Kích hoạt tài khoản</a></td>
-                        <td><a class="btn btn-warning" href="/">Yêu cầu bổ sung ảnh</a></td>
-                        <td><a class="btn btn-danger" href="/">Từ chối xác minh</a></td>
+
+                        {{!-- ------------------------------------ --}}
+                        <td>
+                            <form action="/activeaccount/deactive/{{this.username}}?_method=PUT" method="POST">
+                                <button type="submit" class="btn btn-warning">Yêu cầu bổ sung ảnh </button>
+                            </form>
+                        </td>
+                        <td>
+                            <form action="/activeaccount/cccd/{{this.username}}?_method=PUT" method="POST">
+                                <button type="submit" class="btn btn-danger">Từ chối xác minh</button>
+                            </form>
+                        </td>
                     </tr>
                 </tbody>
                 {{/each}}

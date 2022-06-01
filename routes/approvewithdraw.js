@@ -3,9 +3,7 @@ var router = express.Router();
 var session = require('express-session');
 var credentials = require('../credentials');
 var User = require('../models/user');
-var Transaction = require('../models/transaction');
-
-
+var trans = require('../models/transaction');
 
 
 router.use(session({ secret: credentials.session.key }));
@@ -18,18 +16,20 @@ router.get('/', function (req, res, next) {
     if (err)
       console.log(err);
     if (row != null) {
-      Transaction.find({ deposit: {$gt:5000000} }, (err, rows) => { 
-        // gt >, >= gte, <lt 
+      trans.find( { status: "ĐANG CHỜ" }, (err, rows) => {
         if (err) console.log(err);
         if (rows != null) {
-          let trans = rows.map(row => {
-            return {
-              creator: row.creator,
-              withdraw: row.withdraw,
-              note: row.note,
-              status: row.status,
-              created: row.created,
-            }
+            let trans = rows.map(row => {
+                return {
+                    creator: row.creator,
+                    receiver: row.receiver,
+                    cardInfo: row.cardInfo,
+                    type: row.type,
+                    coin: row.coin,
+                    note: row.note,
+                    created: row.created,
+                    status: row.status,                   
+                }
           });
           let context = {
             fullname: row.firstName + ' ' + row.lastName,
@@ -37,7 +37,7 @@ router.get('/', function (req, res, next) {
             numberphone: row.numberphone,
             money: row.coin,
             status: row.statusAccount,
-            trans: trans,
+            trans: Trans,
             title: 'Phê duyệt rút tiền | BKTPay',
             layout: 'layout'
           }

@@ -23,20 +23,6 @@
                             <div class="d-flex align-items-center justify-content-center mt-4 mb-0">
                                 <button type="submit" class="loginbutton">Đăng nhập</button>
                             </div>
-                            <script>
-                                $(document).ready(function(){
-                                    var user,pass;
-                                    $("#submit").click(function(){
-                                    user=$("#username").val();
-                                    pass=$("#password").val();
-                                    $.post("http://localhost:3000/login",{username: user,password: pass}, function(data){
-                                        if(data === 'yes') {
-                                            alert("login success");
-                                        }
-                                    });
-                                    });
-                                });
-                            </script>
                         </form>
                     </div>
                     <div class="card-footer text-center py-3">

@@ -8,25 +8,30 @@
                 <!-- table-striped là tô màu xen kẽ -->
                 <thead class="table-success text-center">
                     <tr class="text-center justify-content-center">
-                        <td>Người dùng</td>
-                        <td>Thời gian tạo</td>
+                        <td>Người tạo</td>
+                        <td>Loại giao dịch</td>
                         <td>Giá trị</td>
-                        <td>Ghi chú</td>
+                        <td>Chuyển tiền</td>
+                        <td>Nạp tiền/Rút tiền</td>
+                        <td>Ngày giao dịch </td>
+                        <td>Ghi chú </td>
                         <td>Trạng thái</td>
-                        <td colspan="2">Thao tác</td>
+                        <td>Thao tác</td>
                     </tr>
                 </thead>
-                {{#each credits}}
+                {{#each trans}}
                 <tbody class="table-light text-center">
                     <tr>
                         <td>{{this.creator}}</td>
+                        <td>{{this.type}}</td>
+                        <td>{{this.coin}}</td>
+                        <td>{{this.receiver}}</td>
+                        <td>{{this.cardInfo}}</td>
                         <td>{{this.created}}</td>
-                        <td>{{this.withdraw}}</td>
                         <td>{{this.note}}</td>
                         <td>{{this.status}}</td>
+                        <td><a class="btn btn-success" href="/">Từ chối xác minh</a></td>
 
-                        <td><a class="btn btn-success" href="/">Xác thực</a></td>
-                        <td><a class="btn btn-danger" href="/">Từ chối</a></td>
                     </tr>
                 </tbody>
                 {{/each}}

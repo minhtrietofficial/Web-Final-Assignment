@@ -3,6 +3,9 @@ var router = express.Router();
 var session = require('express-session');
 var credentials = require('../credentials');
 var User = require('../models/user');
+var methodOverride = require('method-override');
+router.use(methodOverride('_method'));
+
 router.use(session({ secret: credentials.session.key }));
 
 router.get('/', function (req, res, next) {
@@ -43,5 +46,14 @@ router.get('/', function (req, res, next) {
       res.redirect(303, '/home');
     }
   });
+});
+
+router.put('/unlock/:username', (req, res, next) => {
+  username = req.params.username
+  User.updateOne({ username : req.params.username }, { statusAccount: 'ĐÃ XÁC MINH' },{unusualLogin : '0'} )
+    .then(() => {
+      res.redirect(303, '/accountbaned');
+     })
+    .catch(next)
 });
 module.exports = router;
