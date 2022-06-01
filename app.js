@@ -6,7 +6,6 @@ var logger = require('morgan');
 var credentials = require('./credentials');
 var mongoose = require('mongoose');
 var session = require('express-session');
-
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var homeRouter = require('./routes/home');
@@ -21,6 +20,7 @@ var updateinfoRouter = require('./routes/updateinfo');
 var moneyrechargeRouter = require('./routes/moneyrecharge');
 var moneywithdrawRouter = require('./routes/moneywithdraw');
 var moneytransfersRouter = require('./routes/moneytransfers');
+var moneyphoneRouter = require('./routes/moneyphone');
 var accountRouter = require('./routes/account');
 var accountbanedRouter = require('./routes/accountbaned');
 var accountunvailableRouter = require('./routes/accountunvailable');
@@ -28,7 +28,9 @@ var approvewithdrawRouter = require('./routes/approvewithdraw');
 var approvetransferRouter = require('./routes/approvetransfer');
 var historytranRouter = require('./routes/historytran');
 var historyuserRouter = require('./routes/historyuser');
+var tranpendingRouter = require('./routes/tranpending');
 
+var methodOverride = require('method-override');
 var app = express();
 
 // connect mongodb
@@ -37,13 +39,13 @@ mongoose.connect(credentials.mongo.connectionString.development);
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
-
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({ secret: credentials.session.key }));
+app.use(methodOverride('_method'));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
@@ -59,13 +61,14 @@ app.use('/updateinfo', updateinfoRouter);
 app.use('/moneyrecharge', moneyrechargeRouter);
 app.use('/moneywithdraw', moneywithdrawRouter);
 app.use('/moneytransfers', moneytransfersRouter);
+app.use('/moneyphone', moneyphoneRouter);
 app.use('/account', accountRouter);
 app.use('/accountbaned', accountbanedRouter);
 app.use('/accountunvailable', accountunvailableRouter);
 app.use('/approvewithdraw', approvewithdrawRouter);
 app.use('/approvetransfer', approvetransferRouter);
 app.use('/historytran', historytranRouter);
-
+app.use('/tranpending', tranpendingRouter);
 app.use('/historyuser', historyuserRouter);
 
 

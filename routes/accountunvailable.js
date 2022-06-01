@@ -3,7 +3,12 @@ var router = express.Router();
 var session = require('express-session');
 var credentials = require('../credentials');
 var User = require('../models/user');
+var methodOverride = require('method-override');
+router.use(methodOverride('_method'));
+
+
 router.use(session({ secret: credentials.session.key }));
+
 
 router.get('/', function (req, res, next) {
   if (req.session.username === undefined) {
@@ -13,7 +18,7 @@ router.get('/', function (req, res, next) {
     if (err)
       console.log(err);
     if (row != null) {
-      User.find({ statusAccount: "TỪ CHỐI XÁC MINH" }, (err, rows) => {
+      User.find({ statusAccount: "ĐÃ VÔ HIỆU HÓA" }, (err, rows) => {
         if (err) console.log(err);
         if (rows != null) {
           let users = rows.map(row => {
@@ -44,4 +49,6 @@ router.get('/', function (req, res, next) {
     }
   });
 });
+
+
 module.exports = router;

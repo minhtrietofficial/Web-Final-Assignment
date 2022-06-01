@@ -9,10 +9,13 @@
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
-   
+
 <body class="layout">
-  <div class="statusaccount" statusaccount="{{status}}">Tài khoản chưa được xác thực!</div>
+  <div class="bandstatusaccount" statusaccount="{{status}}"> <h5>Tài khoản chưa được xác thực!</h5></div>
+  <div class="bandstatusaccount2" statusaccount="{{status}}"> <h5>Ảnh CMND không hợp lệ!</h5></div>
+
   <div class="headerofpage d-flex justify-content-end">
     <div class="content"></div>
     <div class="nameoftransaction">
@@ -69,14 +72,15 @@
       </div>
     </div>
     <div class="panel" typeaccount="{{typeaccount}}" statusaccount="{{status}}">
-      
 
-      
+
+
       <div class="panel-group-transaction">
         <div class="panel-group-logo panel-group-logoandname">
           <img src="resources/images/icons8-phone-96.png" height="60" alt="Nạp tiền điện thoại" />
         </div>
-        <div class="panel-group-nametransaction panel-group-logoandname"><a href="moneyphone" style="text-decoration:none" >Nạp tiền điện thoại</a></div>
+        <div class="panel-group-nametransaction panel-group-logoandname"><a href="moneyphone"
+            style="text-decoration:none">Nạp tiền điện thoại</a></div>
         <hr width="100%" color="white" align="center" size="2px">
       </div>
 
@@ -86,19 +90,21 @@
         <div class="panel-group-logo panel-group-logoandname">
           <img src="resources/images/icons8-medical-history-96.png" height="60" alt="Lịch sử giao dịch" />
         </div>
-        <div class="panel-group-nametransaction panel-group-logoandname"><a href="historyuser" style="text-decoration:none" >Lịch sử giao dịch</a></div>
+        <div class="panel-group-nametransaction panel-group-logoandname"><a href="historyuser"
+            style="text-decoration:none">Lịch sử giao dịch</a></div>
         <hr width="100%" color="white" align="center" size="2px">
       </div>
 
 
 
 
-      
+
       <div class="panel-group-transaction">
         <div class="panel-group-logo panel-group-logoandname">
           <img src="resources/images/icons8-delivery-time-96.png" height="60" alt="Giao dịch đang chờ" />
         </div>
-        <div class="panel-group-nametransaction panel-group-logoandname"><a href="tranpending" style="text-decoration:none" >Giao dịch đang chờ</a></div>
+        <div class="panel-group-nametransaction panel-group-logoandname"><a href="tranpending"
+            style="text-decoration:none">Giao dịch đang chờ</a></div>
       </div>
     </div>
     <div class="manage" typeaccount="{{typeaccount}}">
@@ -179,6 +185,8 @@
     crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
     integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy"
+    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
     crossorigin="anonymous"></script>
   <script type="text/javascript" src="/js/main.js"></script>
 

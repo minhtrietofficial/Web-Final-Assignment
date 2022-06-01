@@ -4,6 +4,10 @@ var session = require('express-session');
 var credentials = require('../credentials');
 var User = require('../models/user');
 router.use(session({ secret: credentials.session.key }));
+var methodOverride = require('method-override');
+router.use(methodOverride('_method'));
+
+
 
 router.get('/:username', function (req, res, next) {
     if (req.session.username === undefined) {
@@ -27,7 +31,7 @@ router.get('/:username', function (req, res, next) {
                         status: row.statusAccount,
                         title: 'Chi tiết tài khoản | BKTPay',
                         layout: 'layout',
-                        user: {
+                        user1: {
                             fullname2: row2.firstName + ' ' + row2.lastName,
                             username2: row2.username,
                             datecreate2: row2.created,
@@ -50,5 +54,9 @@ router.get('/:username', function (req, res, next) {
             res.redirect(303, '/home');
         }
     });
+
+    
 });
+
+
 module.exports = router;

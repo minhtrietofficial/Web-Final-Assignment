@@ -3,9 +3,7 @@ var router = express.Router();
 var session = require('express-session');
 var credentials = require('../credentials');
 var User = require('../models/user');
-var Transaction = require('../models/transaction');
-
-
+var trans = require('../models/transaction');
 
 
 router.use(session({ secret: credentials.session.key }));
@@ -18,18 +16,21 @@ router.get('/', function (req, res, next) {
     if (err)
       console.log(err);
     if (row != null) {
-      Transaction.find({ deposit: {$gt:5000000} }, (err, rows) => { 
-        // gt >, >= gte, <lt 
+      trans.find( { status: "ĐANG CHỜ DUYỆT" }, (err, rows) => {
         if (err) console.log(err);
         if (rows != null) {
-          let trans = rows.map(row => {
-            return {
-              creator: row.creator,
-              withdraw: row.withdraw,
-              note: row.note,
-              status: row.status,
-              created: row.created,
-            }
+            let trans = rows.map(row => {
+                return {
+                    _id: row._id,
+                    creator: row.creator,
+                    receiver: row.receiver,
+                    cardInfo: row.cardInfo,
+                    type: row.type,
+                    coin: row.coin,
+                    note: row.note,
+                    created: row.created,
+                    status: row.status,                   
+                }
           });
           let context = {
             fullname: row.firstName + ' ' + row.lastName,
@@ -50,5 +51,21 @@ router.get('/', function (req, res, next) {
       res.redirect(303, '/home');
     }
   });
+});
+
+
+router.put('/accept/:_id', (req, res, next) => {
+  User.updateOne({ _id : req.params.id }, { status: 'THÀNH CÔNG' })
+    .then(() => {
+      res.redirect(303, '/approvewithdraw');
+     })
+    .catch(next)
+});
+router.put('/cancel/:_id', (req, res, next) => {
+  User.updateOne({ _id : req.params.id }, { status: 'ĐÃ HỦY' })
+    .then(() => {
+      res.redirect(303, '/approvewithdraw');
+    })
+    .catch(next)
 });
 module.exports = router;

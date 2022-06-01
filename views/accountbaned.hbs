@@ -12,7 +12,7 @@
                         <td>Username</td>
                         <td>Thời gian tạo</td>
                         <td>Trạng thái</td>
-                        <td colspan="1">Thao tác</td>
+                        <td colspan="2">Thao tác</td>
                     </tr>
                 </thead>
                 {{#each users}}
@@ -21,13 +21,15 @@
                         <td>{{this.fullname}}</td>
                         <td>{{this.username}}</td>
                         <td>{{this.datecreate}}</td>
-
                         <td>{{this.statusAccount}}</td>
-                        <td ><a class="btn btn-light" href="/detailuser/{{this.username}}">Thông tin chi
+                        <td><a class="btn btn-primary" href="/detailuser/{{this.username}}">Thông tin chi
                                 tiết</a>
                         </td>
-                        
-
+                        <td>
+                            <form action="/accountbaned/unlock/{{this.username}}?_method=PUT" method="POST">
+                                <button type="submit" class="btn btn-success">Mở khóa</button>
+                            </form>
+                        </td>
                     </tr>
                 </tbody>
                 {{/each}}

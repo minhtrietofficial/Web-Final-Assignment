@@ -8,9 +8,10 @@
                 <!-- table-striped là tô màu xen kẽ -->
                 <thead class="table-success text-center">
                     <tr class="text-center justify-content-center">
-                        <td>Giao dịch gửi</td>
-                        <td>Giao dịch nhận</td>
-                        <td>Nạp tiền</td>
+                        <td>Loại giao dịch</td>
+                        <td>Biến động số dư</td>
+                        <td>Chuyển tiền</td>
+                        <td>Nạp tiền/Rút tiền</td>
                         <td>Ngày giao dịch </td>
                         <td>Ghi chú </td>
                         <td>Trạng thái</td>
@@ -19,14 +20,13 @@
                 {{#each trans}}
                 <tbody class="table-light text-center">
                     <tr>
-
-                        <td>{{this.creator}}</td>
+                        <td>{{this.type}}</td>
+                        <td>{{this.coin}}</td>
                         <td>{{this.receiver}}</td>
                         <td>{{this.cardInfo}}</td>
                         <td>{{this.created}}</td>
                         <td>{{this.note}}</td>
                         <td>{{this.status}}</td>
-
                     </tr>
                 </tbody>
                 {{/each}}
