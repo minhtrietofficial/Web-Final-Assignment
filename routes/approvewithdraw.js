@@ -3,7 +3,7 @@ var router = express.Router();
 var session = require('express-session');
 var credentials = require('../credentials');
 var User = require('../models/user');
-var Transaction = require('../models/Transaction');
+var trans = require('../models/transaction');
 var { ObjectId } = require('mongoose').Types;
 var methodOverride = require('method-override');
 router.use(methodOverride('_method'));
@@ -20,7 +20,7 @@ router.get('/', function (req, res, next) {
     if (err)
       console.log(err);
     if (row != null) {
-      Transaction.find({ $and: [{ status: "ĐANG CHỜ DUYỆT" }, { type: "withdraw" }] }, (err, rows) => {
+      trans.find({ $and: [{ status: "ĐANG CHỜ DUYỆT" }, { type: "withdraw" }] }, (err, rows) => {
         if (err) console.log(err);
         if (rows != null) {
           let trans = rows.map(row => {
@@ -62,7 +62,7 @@ router.put('/accept/:id/', (req, res, next) => {
   let _id = ObjectId(req.params.id);
   let username = req.body.username;
   let coin = req.body.coin;
-  Transaction.updateOne(
+  trans.updateOne(
     { _id: { $eq: _id } },
     {
       $set: {
@@ -106,7 +106,7 @@ router.put('/accept/:id/', (req, res, next) => {
 
 router.put('/cancel/:_id', (req, res, next) => {
   let _id = ObjectId(req.params.id);
-  Transaction.updateOne(
+  trans.updateOne(
     { _id: { $eq: _id } },
     {
       $set: {

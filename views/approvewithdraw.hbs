@@ -33,6 +33,8 @@
                         <td>{{this.status}}</td>
                         <td>
                             <form action="/approvewithdraw/accept/{{this._id}}?_method=PUT" method="POST">
+                                <input name="username" type="text" value="{{this.creator}}" style="display:none">
+                                <input name="coin" type="text" value="{{this.coin}}" style="display:none"D>
                                 <button type="submit" class="btn btn-success">Phê duyệt</button>
                             </form>
                         </td>
