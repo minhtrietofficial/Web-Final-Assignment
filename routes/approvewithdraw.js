@@ -3,7 +3,7 @@ var router = express.Router();
 var session = require('express-session');
 var credentials = require('../credentials');
 var User = require('../models/user');
-var trans = require('../models/transaction');
+var Transaction = require('../models/transaction');
 var { ObjectId } = require('mongoose').Types;
 var methodOverride = require('method-override');
 router.use(methodOverride('_method'));
@@ -20,24 +20,39 @@ router.get('/', function (req, res, next) {
     if (err)
       console.log(err);
     if (row != null) {
-      trans.find({ $and: [{ status: "ĐANG CHỜ DUYỆT" }, { type: "withdraw" }] }, (err, rows) => {
+      Transaction.find({ $and: [{ status: "ĐANG CHỜ DUYỆT" }, { type: "withdraw" }] }, (err, rows) => {
         if (err) console.log(err);
         if (rows != null) {
           let trans = rows.map(row => {
-            return {
-              _id: row.id,
-              creator: row.creator,
-              receiver: row.receiver,
-              cardInfo: row.cardInfo,
-              type: row.type,
-              coin: row.coin,
-              note: row.note,
-              created: row.created,
-              status: row.status,
-            }
+            User.findOne({ username: ObjectId(row.id) }, (err, user) => {
+              if (err) console.log(err);
+              if (user != null) {
+                if (user.coin < row.coin) {
+                  Transaction.updateOne(
+                    { _id: { $eq: ObjectId(row.id) } },
+                    {
+                      $set: {
+                        status: 'THẤT BẠI',
+                      }
+                    }
+                  )
+                } else {
+                  return {
+                    _id: row.id,
+                    creator: row.creator,
+                    receiver: row.receiver,
+                    cardInfo: row.cardInfo,
+                    type: row.type,
+                    coin: row.coin,
+                    note: row.note,
+                    created: row.created,
+                    status: row.status,
+                  }
+                }
+              }
+            })
           });
           let context = {
-
             fullname: row.firstName + ' ' + row.lastName,
             typeaccount: row.role,
             numberphone: row.numberphone,
@@ -62,7 +77,7 @@ router.put('/accept/:id/', (req, res, next) => {
   let _id = ObjectId(req.params.id);
   let username = req.body.username;
   let coin = req.body.coin;
-  trans.updateOne(
+  Transaction.updateOne(
     { _id: { $eq: _id } },
     {
       $set: {
@@ -106,7 +121,7 @@ router.put('/accept/:id/', (req, res, next) => {
 
 router.put('/cancel/:_id', (req, res, next) => {
   let _id = ObjectId(req.params.id);
-  trans.updateOne(
+  Transaction.updateOne(
     { _id: { $eq: _id } },
     {
       $set: {
