@@ -3,7 +3,7 @@ var router = express.Router();
 var session = require('express-session');
 var credentials = require('../credentials');
 var User = require('../models/user');
-var Transaction = require('../models/Transactionaction');
+var Transaction = require('../models/Transaction');
 var { ObjectId } = require('mongoose').Types;
 var methodOverride = require('method-override');
 router.use(methodOverride('_method'));
@@ -23,7 +23,7 @@ router.get('/', function (req, res, next) {
       Transaction.find({ $and: [{ status: "ĐANG CHỜ DUYỆT" }, { type: "withdraw" }] }, (err, rows) => {
         if (err) console.log(err);
         if (rows != null) {
-          let Transaction = rows.map(row => {
+          let trans = rows.map(row => {
             return {
               _id: row.id,
               creator: row.creator,
@@ -43,7 +43,7 @@ router.get('/', function (req, res, next) {
             numberphone: row.numberphone,
             money: row.coin,
             status: row.statusAccount,
-            Transaction: Transaction,
+            trans: trans,
             title: 'Phê duyệt rút tiền | BKTPay',
             layout: 'layout'
           }
@@ -58,7 +58,6 @@ router.get('/', function (req, res, next) {
   });
 });
 
-
 router.put('/accept/:id/', (req, res, next) => {
   let _id = ObjectId(req.params.id);
   let username = req.body.username;
@@ -72,24 +71,29 @@ router.put('/accept/:id/', (req, res, next) => {
     }
   )
     .then(() => {
-      User.updateOne(
-        { username: { $eq: username } },
-        {
-          $set: {
-            coin: coin,
-          }
+      User.findOne({ username: username }, (err, user) => {
+        if (err) console.log(err);
+        if (user != null) {
+          User.updateOne(
+            { username: { $eq: username } },
+            {
+              $set: {
+                coin: parseInt(user.coin) - coin,
+              }
+            }
+          )
+            .then(() => {
+              res.redirect(303, '/approvewithdraw');
+            })
+            .catch(err => {
+              console.log(err);
+              req.session.errors = [
+                'Cập nhật số dư thất bại'
+              ]
+              res.redirect(303, '/approvewithdraw');
+            })
         }
-      )
-        .then(() => {
-          res.redirect(303, '/approvewithdraw');
-        })
-        .catch(err => {
-          console.log(err);
-          req.session.errors = [
-            'Cập nhật số dư thất bại'
-          ]
-          res.redirect(303, '/approvewithdraw');
-        })
+      })
     })
     .catch(err => {
       console.log(err);
