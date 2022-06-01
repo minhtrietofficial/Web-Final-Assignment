@@ -3,7 +3,7 @@ var router = express.Router();
 var session = require('express-session');
 var credentials = require('../credentials');
 var User = require('../models/user');
-var Transaction = require('../models/Transactionaction');
+var trans = require('../models/transaction');
 var { ObjectId } = require('mongoose').Types;
 var methodOverride = require('method-override');
 router.use(methodOverride('_method'));
@@ -20,10 +20,10 @@ router.get('/', function (req, res, next) {
     if (err)
       console.log(err);
     if (row != null) {
-      Transaction.find({ $and: [{ status: "ĐANG CHỜ DUYỆT" }, { type: "withdraw" }] }, (err, rows) => {
+      trans.find({ $and: [{ status: "ĐANG CHỜ DUYỆT" }, { type: "withdraw" }] }, (err, rows) => {
         if (err) console.log(err);
         if (rows != null) {
-          let Transaction = rows.map(row => {
+          let trans = rows.map(row => {
             return {
               _id: row.id,
               creator: row.creator,
@@ -43,7 +43,7 @@ router.get('/', function (req, res, next) {
             numberphone: row.numberphone,
             money: row.coin,
             status: row.statusAccount,
-            Transaction: Transaction,
+            trans: trans,
             title: 'Phê duyệt rút tiền | BKTPay',
             layout: 'layout'
           }
@@ -63,7 +63,7 @@ router.put('/accept/:id/', (req, res, next) => {
   let _id = ObjectId(req.params.id);
   let username = req.body.username;
   let coin = req.body.coin;
-  Transaction.updateOne(
+  trans.updateOne(
     { _id: { $eq: _id } },
     {
       $set: {
@@ -102,7 +102,7 @@ router.put('/accept/:id/', (req, res, next) => {
 
 router.put('/cancel/:_id', (req, res, next) => {
   let _id = ObjectId(req.params.id);
-  Transaction.updateOne(
+  trans.updateOne(
     { _id: { $eq: _id } },
     {
       $set: {
