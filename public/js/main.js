@@ -61,3 +61,7 @@ defaultBtn1.addEventListener("change", function () {
 });
 
 
+let num = 1000000;
+let text = num.toLocaleString();
+
+document.getElementById("demo").innerHTML = text;	

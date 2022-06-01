@@ -16,12 +16,13 @@
                         <td>Ngày giao dịch </td>
                         <td>Ghi chú </td>
                         <td>Trạng thái</td>
-                        <td>Thao tác</td>
+                        <td colspan="2">Thao tác</td>
                     </tr>
                 </thead>
                 {{#each trans}}
                 <tbody class="table-light text-center">
                     <tr>
+                        <td>{{this._id}}</td>
                         <td>{{this.creator}}</td>
                         <td>{{this.type}}</td>
                         <td>{{this.coin}}</td>

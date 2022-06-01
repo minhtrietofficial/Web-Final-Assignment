@@ -1,9 +1,13 @@
+var {ObjectId} = require('mongoose').Types;
 var express = require('express');
 var router = express.Router();
 var session = require('express-session');
 var credentials = require('../credentials');
 var User = require('../models/user');
 var trans = require('../models/transaction');
+var methodOverride = require('method-override');
+router.use(methodOverride('_method'));
+
 
 
 router.use(session({ secret: credentials.session.key }));
@@ -16,23 +20,24 @@ router.get('/', function (req, res, next) {
     if (err)
       console.log(err);
     if (row != null) {
-      trans.find( { status: "ĐANG CHỜ DUYỆT" }, (err, rows) => {
+      trans.find({ $and: [{ status: "ĐANG CHỜ DUYỆT" }, { type: "withdraw" }] }, (err, rows) => {
         if (err) console.log(err);
         if (rows != null) {
-            let trans = rows.map(row => {
-                return {
-                    _id: row._id,
-                    creator: row.creator,
-                    receiver: row.receiver,
-                    cardInfo: row.cardInfo,
-                    type: row.type,
-                    coin: row.coin,
-                    note: row.note,
-                    created: row.created,
-                    status: row.status,                   
-                }
+          let trans = rows.map(row => {
+            return {
+              _id: row.id,
+              creator: row.creator, 
+              receiver: row.receiver,
+              cardInfo: row.cardInfo,
+              type: row.type,
+              coin: row.coin,
+              note: row.note,
+              created: row.created,
+              status: row.status,
+            }
           });
           let context = {
+
             fullname: row.firstName + ' ' + row.lastName,
             typeaccount: row.role,
             numberphone: row.numberphone,
@@ -54,18 +59,25 @@ router.get('/', function (req, res, next) {
 });
 
 
-router.put('/accept/:_id', (req, res, next) => {
-  User.updateOne({ _id : req.params.id }, { status: 'THÀNH CÔNG' })
-    .then(() => {
-      res.redirect(303, '/approvewithdraw');
-     })
-    .catch(next)
-});
-router.put('/cancel/:_id', (req, res, next) => {
-  User.updateOne({ _id : req.params.id }, { status: 'ĐÃ HỦY' })
+router.put('/accept/:id', (req, res, next) => {
+  User.updateOne({  _id: req.params.id }, { status: 'THÀNH CÔNG' })
+  
     .then(() => {
       res.redirect(303, '/approvewithdraw');
     })
     .catch(next)
 });
+
+
+
+router.put('/cancel/:_id', (req, res, next) => {
+  User.updateOne({  _id: req.params.id }, { status: 'ĐÃ HỦY' })
+    .then(() => {
+      res.redirect(303, '/approvewithdraw');
+    })
+    .catch(next)
+});
+
 module.exports = router;
+
+

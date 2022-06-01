@@ -15,7 +15,7 @@ router.get('/', function (req, res, next) {
         if (err)
             console.log(err);
         if (row != null) {
-            trans.find({ $or: [{ creator: req.session.username }, { status: "ĐANG CHỜ" }] }, (err, rows) => {
+            trans.find({ $and: [{ creator: req.session.username }, { status: "ĐANG CHỜ DUYỆT" }] }, (err, rows) => {
                 if (err) console.log(err);
                 if (rows != null) {
                     let trans = rows.map(row => {

@@ -15,7 +15,11 @@ router.get('/', function (req, res, next) {
         if (err)
             console.log(err);
         if (row != null) {
-            trans.find({ $or: [{ creator: req.session.username }, { receiver: req.session.username }, { status: "THÀNH CÔNG" }] }, (err, rows) => {
+            trans.find({
+
+                $or: [{ $and: [{ creator: req.session.username }, { status: "THÀNH CÔNG" }] }, { $and: [{ receiver: req.session.username }, { status: "THÀNH CÔNG" }] }]
+
+            }, (err, rows) => {
                 if (err) console.log(err);
                 if (rows != null) {
                     let trans = rows.map(row => {
@@ -27,7 +31,7 @@ router.get('/', function (req, res, next) {
                             coin: row.coin,
                             note: row.note,
                             created: row.created,
-                            status: row.status,                   
+                            status: row.status,
                         }
                     });
                     let context = {
