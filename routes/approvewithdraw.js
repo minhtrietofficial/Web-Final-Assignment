@@ -3,7 +3,7 @@ var router = express.Router();
 var session = require('express-session');
 var credentials = require('../credentials');
 var User = require('../models/user');
-var trans = require('../models/transaction');
+var Transaction = require('../models/Transactionaction');
 var { ObjectId } = require('mongoose').Types;
 var methodOverride = require('method-override');
 router.use(methodOverride('_method'));
@@ -20,10 +20,10 @@ router.get('/', function (req, res, next) {
     if (err)
       console.log(err);
     if (row != null) {
-      trans.find({ $and: [{ status: "ĐANG CHỜ DUYỆT" }, { type: "withdraw" }] }, (err, rows) => {
+      Transaction.find({ $and: [{ status: "ĐANG CHỜ DUYỆT" }, { type: "withdraw" }] }, (err, rows) => {
         if (err) console.log(err);
         if (rows != null) {
-          let trans = rows.map(row => {
+          let Transaction = rows.map(row => {
             return {
               _id: row.id,
               creator: row.creator,
@@ -43,7 +43,7 @@ router.get('/', function (req, res, next) {
             numberphone: row.numberphone,
             money: row.coin,
             status: row.statusAccount,
-            trans: trans,
+            Transaction: Transaction,
             title: 'Phê duyệt rút tiền | BKTPay',
             layout: 'layout'
           }
@@ -59,23 +59,67 @@ router.get('/', function (req, res, next) {
 });
 
 
-router.put('/accept/:id', (req, res, next) => {
-  User.updateOne({ _id: ObjectId(req.params.id) }, { status: 'THÀNH CÔNG' })
-
+router.put('/accept/:id/', (req, res, next) => {
+  let _id = ObjectId(req.params.id);
+  let username = req.body.username;
+  let coin = req.body.coin;
+  Transaction.updateOne(
+    { _id: { $eq: _id } },
+    {
+      $set: {
+        status: 'THÀNH CÔNG',
+      }
+    }
+  )
     .then(() => {
+      User.updateOne(
+        { username: { $eq: username } },
+        {
+          $set: {
+            coin: coin,
+          }
+        }
+      )
+        .then(() => {
+          res.redirect(303, '/approvewithdraw');
+        })
+        .catch(err => {
+          console.log(err);
+          req.session.errors = [
+            'Cập nhật số dư thất bại'
+          ]
+          res.redirect(303, '/approvewithdraw');
+        })
+    })
+    .catch(err => {
+      console.log(err);
+      req.session.errors = [
+        'Cập nhật trạng thái giao dịch thất bại'
+      ]
       res.redirect(303, '/approvewithdraw');
     })
-    .catch(next)
 });
 
-
-
 router.put('/cancel/:_id', (req, res, next) => {
-  User.updateOne({ _id: ObjectId(req.params.id) }, { status: 'ĐÃ HỦY' })
+  let _id = ObjectId(req.params.id);
+  Transaction.updateOne(
+    { _id: { $eq: _id } },
+    {
+      $set: {
+        status: 'ĐÃ HỦY'
+      }
+    }
+  )
     .then(() => {
       res.redirect(303, '/approvewithdraw');
     })
-    .catch(next)
+    .catch(err => {
+      console.log(err);
+      req.session.errors = [
+        'Cập nhật trạng thái giao dịch thất bại'
+      ]
+      res.redirect(303, '/approvewithdraw');
+    })
 });
 
 module.exports = router;
