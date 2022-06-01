@@ -1,6 +1,5 @@
 <div class="content detailuser">
 
-    {{#if user1}}
     <div class="titlecardinfo">
         Thông tin tài khoản
     </div>
@@ -13,7 +12,7 @@
             </div>
             <div class=" col-md-6">
                 <div class="infouser name">
-                    {{user1.fullname2}}
+                    {{this.fullname}}
                 </div>
             </div>
         </div>
@@ -25,7 +24,7 @@
             </div>
             <div class=" col-md-6">
                 <div class="infouser">
-                    {{user1.gender2}}
+                    {{this.gender}}
                 </div>
             </div>
         </div>
@@ -37,7 +36,7 @@
             </div>
             <div class=" col-md-6">
                 <div class="infouser">
-                    {{user1.numberphone2}}
+                    {{this.numberphone}}
                 </div>
             </div>
         </div>
@@ -50,7 +49,7 @@
             </div>
             <div class=" col-md-6">
                 <div class="infouser">
-                    {{user1.email2}}
+                    {{this.email}}
                 </div>
             </div>
         </div>
@@ -62,7 +61,7 @@
             </div>
             <div class=" col-md-6">
                 <div class="infouser money">
-                    {{user1.money2}} VNĐ
+                    {{this.money}} VNĐ
                 </div>
             </div>
         </div>
@@ -75,7 +74,7 @@
             </div>
             <div class=" col-md-6">
                 <div class="infouser">
-                    {{user1.datecreate2}}
+                    {{this.datecreate}}
                 </div>
             </div>
         </div>
@@ -86,20 +85,21 @@
                 </div>
             </div>
             <div class=" col-md-6">
-                <div class="infouser " id="statusaccount" detailstatusaccount="{{user.statusAccount2}}">
-                    {{user1.statusAccount2}}
+                <div class="infouser " id="statusaccount">
+                    {{this.status}}
                 </div>
             </div>
         </div>
-        <div class="row mb-3 cccd" cccd="{{user.cccd2}}">
+        <div class="row mb-3 cccd">
             <div class="col-md-12 note">
                 Tài khoản cần được bổ sung lại ảnh Căn cước công dân
             </div>
         </div>
 
+        <td><a class="btn btn-primary btn-fuild btn-block" href="/account">Quay lại trang quản lí người dùng</a></td>
 
 
 
-        {{/if}}
+
     </div>
 </div>

@@ -3,7 +3,9 @@ var router = express.Router();
 var session = require('express-session');
 const req = require('express/lib/request');
 var credentials = require('../credentials');
-var trans = require('../models/transaction');
+var User = require('../models/user');
+
+
 router.use(session({ secret: credentials.session.key }));
 
 /* GET home page. */
@@ -24,8 +26,9 @@ router.get('/:username', function (req, res, next) {
         money: row.coin,
         status: row.statusAccount,
         cccd: row.cccd,
+        datecreate: row.created,
         title: 'Thông tin tài khoản | BKTPay',
-        layout: 'detaillayout'
+        layout: 'detaillayout',
       }
       return res.render('detailuser', context);
     }
