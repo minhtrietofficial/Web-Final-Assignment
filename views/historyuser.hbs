@@ -15,11 +15,15 @@
                         <td>Ngày giao dịch </td>
                         <td>Ghi chú </td>
                         <td>Trạng thái</td>
+                        <td>Thao tác</td>
+
                     </tr>
                 </thead>
                 {{#each trans}}
                 <tbody class="table-light text-center">
                     <tr>
+                                                <td style="display:none">{{this._id}}</td>
+
                         <td>{{this.type}}</td>
                         <td>{{this.coin}}</td>
                         <td>{{this.receiver}}</td>
@@ -27,6 +31,8 @@
                         <td>{{this.created}}</td>
                         <td>{{this.note}}</td>
                         <td>{{this.status}}</td>
+                        <td><a class="btn btn-primary" href="/detailtran/{{this._id}}">Chi tiết giao dịch</a></td>
+
                     </tr>
                 </tbody>
                 {{/each}}

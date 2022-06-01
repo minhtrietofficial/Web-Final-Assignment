@@ -4,38 +4,57 @@
     </div>
     <div class="cardinfo">
         <div class="row mb-3">
+
+
+
             <div class=" col-md-6">
                 <div class="titleinfo">
-                    Họ và tên
+                    Người thực hiện
                 </div>
             </div>
             <div class=" col-md-6">
                 <div class="infouser name">
-                    {{fullname}}
+                    {{this.creator}}
+                </div>
+            </div>
+        </div>
+        <div class="row mb-3">
+
+
+
+            <div class=" col-md-6">
+                <div class="titleinfo">
+                    Người nhận
+                </div>
+            </div>
+            <div class=" col-md-6">
+                <div class="infouser name">
+                    {{this.receiver}}
                 </div>
             </div>
         </div>
         <div class="row mb-3">
             <div class=" col-md-6">
                 <div class="titleinfo">
-                    Giới tính
+                    Loại giao dịch
                 </div>
             </div>
+
             <div class=" col-md-6">
                 <div class="infouser">
-                    {{gender}}
+                    {{this.type}}
                 </div>
             </div>
         </div>
         <div class="row mb-3">
             <div class=" col-md-6">
                 <div class="titleinfo">
-                    Số điện thoại
+                    Giá trị
                 </div>
             </div>
             <div class=" col-md-6">
-                <div class="infouser">
-                    {{numberphone}}
+                <div class="infouser money">
+                    {{coin}} VNĐ
                 </div>
             </div>
         </div>
@@ -43,42 +62,44 @@
         <div class="row mb-3">
             <div class=" col-md-6">
                 <div class="titleinfo">
-                    Email
+                    Ghi chú
                 </div>
             </div>
             <div class=" col-md-6">
                 <div class="infouser">
-                    {{email}}
+                    {{this.note}}
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class=" col-md-6">
+                <div class="titleinfo">
+                    Ngày giao dịch
+                </div>
+            </div>
+            <div class=" col-md-6">
+                <div class="infouser ">
+                    {{this.created}}
                 </div>
             </div>
         </div>
         <div class="row mb-3">
             <div class=" col-md-6">
                 <div class="titleinfo">
-                    Số dư
+                    Trạng thái giao dịch
                 </div>
             </div>
             <div class=" col-md-6">
-                <div class="infouser money">
-                    {{money}} VNĐ
+                <div class="infouser trangthai" status="{{status}}">
+                    {{this.status}}
                 </div>
             </div>
         </div>
-        <div class="row mb-3">
-            <div class=" col-md-6">
-                <div class="titleinfo">
-                    Trạng thái tài khoản
-                </div>
-            </div>
-            <div class=" col-md-6">
-                <div class="infouser trangthai"  status ="{{status}}">
-                    {{status}}
-                </div>
-            </div>
-        </div>
-        
-       
-        <td><a class="btn btn-primary btn-fuild btn-block" href="/account">Quay lại trang quản lí người dùng</a></td>
+
+
+        <td><a class="btn btn-primary btn-fuild btn-block" href="/">Quay lại trang chủ</a></td>
+
 
 
 

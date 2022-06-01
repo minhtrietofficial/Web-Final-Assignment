@@ -9,54 +9,46 @@ router.use(session({ secret: credentials.session.key }));
 
 router.get('/:username', function (req, res, next) {
     if (req.session.username === undefined) {
-      return res.redirect(303, '/');
+        return res.redirect(303, '/');
     }
     User.findOne({ username: req.session.username }, (err, row) => {
-      if (err)
-        console.log(err);
-      if (row != null) {
+        if (err)
+            console.log(err);
+        if (row != null) {
+            trans.find({
 
-        trans.find({
+                $or: [{ $and: [{ creator: req.params.username }, { status: "THÀNH CÔNG" }] }, { $and: [{ receiver: req.params.username }, { status: "THÀNH CÔNG" }] }]
 
-            $or: [{ $and: [{ creator: req.params.username }, { status: "THÀNH CÔNG" }] }, { $and: [{ receiver: req.params.username }, { status: "THÀNH CÔNG" }] }]
-
-        }, (err, rows) => {
-          if (err) console.log(err);
-          if (rows != null) {
-            let trans = rows.map(row => {
-              return {
-                
-                creator: row.creator,
-                receiver: row.receiver,
-                cardInfo: row.cardInfo,
-                type: row.type,
-                coin: row.coin,
-                note: row.note,
-                created: row.created,
-                status: row.status,
-
-
-
-              }
+            }, (err, rows) => {
+                if (err) console.log(err);
+                if (rows != null) {
+                    let trans = rows.map(row => {
+                        return {
+                          _id: row._id,
+                            creator: row.creator,
+                            receiver: row.receiver,
+                            cardInfo: row.cardInfo,
+                            type: row.type,
+                            coin: row.coin,
+                            note: row.note,
+                            created: row.created,
+                            status: row.status,
+                        }
+                    });
+                    let context = {
+                    
+                        trans: trans,
+                        title: 'Lịch sử giao dịch | BKTPay',
+                        layout: 'detaillayout'
+                    }
+                    return res.render('historytran', context);
+                } else {
+                    res.redirect(303, '/home');
+                }
             });
-            let context = {             
-              fullname: row.firstName + ' ' + row.lastName,
-              typeaccount: row.role,
-              numberphone: row.numberphone,
-              money: row.coin,
-              status: row.statusAccount,
-              trans: trans,
-              title: 'Lịch sử giao dịch | BKTPay',
-              layout: 'detaillayout'
-            }
-            return res.render('historytran', context);
-          } else {
+        } else {
             res.redirect(303, '/home');
-          }
-        });
-      } else {
-        res.redirect(303, '/home');
-      }
+        }
     });
-  });
-  module.exports = router;
+});
+module.exports = router;
