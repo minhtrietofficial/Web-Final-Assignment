@@ -1,10 +1,10 @@
-var {ObjectId} = require('mongoose').Types;
 var express = require('express');
 var router = express.Router();
 var session = require('express-session');
 var credentials = require('../credentials');
 var User = require('../models/user');
 var trans = require('../models/transaction');
+var { ObjectId } = require('mongoose').Types;
 var methodOverride = require('method-override');
 router.use(methodOverride('_method'));
 
@@ -26,7 +26,7 @@ router.get('/', function (req, res, next) {
           let trans = rows.map(row => {
             return {
               _id: row.id,
-              creator: row.creator, 
+              creator: row.creator,
               receiver: row.receiver,
               cardInfo: row.cardInfo,
               type: row.type,
@@ -60,8 +60,8 @@ router.get('/', function (req, res, next) {
 
 
 router.put('/accept/:id', (req, res, next) => {
-  User.updateOne({  _id: req.params.id }, { status: 'THÀNH CÔNG' })
-  
+  User.updateOne({ _id: ObjectId(req.params.id) }, { status: 'THÀNH CÔNG' })
+
     .then(() => {
       res.redirect(303, '/approvewithdraw');
     })
@@ -71,7 +71,7 @@ router.put('/accept/:id', (req, res, next) => {
 
 
 router.put('/cancel/:_id', (req, res, next) => {
-  User.updateOne({  _id: req.params.id }, { status: 'ĐÃ HỦY' })
+  User.updateOne({ _id: ObjectId(req.params.id) }, { status: 'ĐÃ HỦY' })
     .then(() => {
       res.redirect(303, '/approvewithdraw');
     })
